@@ -1,7 +1,5 @@
-import { Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import { useEffect } from "react";
+import { Button, Table } from "react-bootstrap";
+import { useState, useEffect } from "react";
 
 const Administrador = () => {
   const [juegos, setJuegos] = useState([]);
@@ -47,32 +45,37 @@ const Administrador = () => {
               <td>{juego.id}</td>
               <td>{juego.nombreJuego}</td>
               <td>{juego.precio}</td>
-              <td>
-                
-              </td>
+              <td></td>
               <td>
                 {juego.categorias.map((cat) => (
                   <span key={cat.id}>{cat.categoria}, </span>
-                ))}</td>
+                ))}
+              </td>
               <td>{juego.fechaDeLanzamiento}</td>
               <td>
+                <div>Memoria Ram: {juego.memoriaRam}</div>
+                <div>Disco en Duro: {juego.espacioDiscoDuro}</div>
+                <div>Procesador: {juego.procesadores.procesador}</div>
                 <div>
-                    Memoria Ram: {juego.memoriaRam}
+                  Sistema Operativo: {juego.sistemasOperativos.sistemaOperativo}
                 </div>
                 <div>
-                    Disco en Duro: {juego.espacioDiscoDuro}
+                  Tarjeta Grafica: {juego.tarjetasGraficas.tarjetaGrafica}
                 </div>
-                <div>
-                    Procesador: {juego.procesadores.procesador}
+              </td>
+              <td>
+                <div className="d-flex flex-column">
+                  <Button variant="success" className="mb-2">
+                    Agregar
+                  </Button>
+                  <Button variant="warning" className="mb-2">
+                    Editar
+                  </Button>
+                  <Button variant="danger" className="mb-2">
+                    Eliminar
+                  </Button>
                 </div>
-                <div>
-                    Sistema Operativo: {juego.sistemasOperativos.sistemaOperativo}
-                </div>
-                <div>
-                    Tarjeta Grafica: {juego.tarjetasGraficas.tarjetaGrafica}
-                </div>
-                </td>
-              <td></td>
+              </td>
             </tr>
           ))}
         </tbody>

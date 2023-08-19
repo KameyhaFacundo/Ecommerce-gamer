@@ -31,7 +31,6 @@
       "id": 5
     }
   ],
-  
   "usuarios": [
     {
       "nombreUsuario": "Admin",
@@ -67,22 +66,30 @@
       "resenias": "",
       "memoriaRam": "4G",
       "espacioDiscoDuro": "10G",
-      "categorias": [{
-        "categoria": "SandBox",
-        "id": 1
-      }],
-      "procesadores": {
-        "procesador": "Apple M1",
-        "id": 3
-      },
-      "sistemasOperativos": {
-        "sistemaOperativo": "MAC OS",
-        "id": 2
-      },
-      "tarjetasGraficas": {
-        "tarjetaGrafica": "NVIDIA GeForce GTX 1660 Ti",
-        "id": 3
-      }
+      "categorias": [
+        {
+          "categoria": "SandBox",
+          "id": 1
+        }
+      ],
+      "procesadores": [
+        {
+          "procesador": "Apple M1",
+          "id": 3
+        }
+      ],
+      "sistemasOperativos": [
+        {
+          "sistemaOperativo": "MAC OS",
+          "id": 2
+        }
+      ],
+      "tarjetasGraficas": [
+        {
+          "tarjetaGrafica": "NVIDIA GeForce GTX 1660 Ti",
+          "id": 3
+        }
+      ]
     },
     {
       "id": 2,
@@ -105,18 +112,24 @@
           "id": 4
         }
       ],
-      "procesadores": {
-        "procesador": "AMD Ryzen 7 5800X",
-        "id": 2
-      },
-      "sistemasOperativos": {
-        "tarjetaGrafica": "NVIDIA GeForce RTX 3080",
-        "id": 1
-      },
-      "tarjetasGraficas": {
-        "tarjetaGrafica": "AMD Radeon RX 6800 XT",
-        "id": 2
-      }
+      "procesadores": [
+        {
+          "procesador": "AMD Ryzen 7 5800X",
+          "id": 2
+        }
+      ],
+      "sistemasOperativos": [
+        {
+          "tarjetaGrafica": "NVIDIA GeForce RTX 3080",
+          "id": 1
+        }
+      ],
+      "tarjetasGraficas": [
+        {
+          "tarjetaGrafica": "AMD Radeon RX 6800 XT",
+          "id": 2
+        }
+      ]
     },
     {
       "id": 3,
@@ -135,18 +148,59 @@
           "id": 2
         }
       ],
-      "procesadores": {
-        "procesador": "Apple M1",
-        "id": 3
-      },
-      "sistemasOperativos": {
-        "sistemaOperativo": "ANDROID",
-        "id": 4
-      },
-      "tarjetasGraficas": {
-        "tarjetaGrafica": "NVIDIA GeForce GTX 1660 Ti",
-        "id": 3
-      }
+      "procesadores": [
+        {
+          "procesador": "Apple M1",
+          "id": 3
+        }
+      ],
+      "sistemasOperativos": [
+        {
+          "sistemaOperativo": "ANDROID",
+          "id": 4
+        }
+      ],
+      "tarjetasGraficas": [
+        {
+          "tarjetaGrafica": "NVIDIA GeForce GTX 1660 Ti",
+          "id": 3
+        }
+      ]
+    },
+    {
+      "nombreJuego": "Pedro",
+      "precio": "600",
+      "fechaDeLanzamiento": "01-01-2002",
+      "desarrollador": "asdasdasd",
+      "descripcion": "asdasdasd",
+      "categorias": [
+        {
+          "categoria": "Simulacion",
+          "id": 2
+        }
+      ],
+      "imagen": "asd",
+      "memoriaRam": "5",
+      "espacioDiscoDuro": "5",
+      "procesadores": [
+        {
+          "procesador": "AMD Ryzen 7 5800X",
+          "id": 2
+        }
+      ],
+      "sistemasOperativos": [
+        {
+          "sistemaOperativo": "WINDOWS",
+          "id": 1
+        }
+      ],
+      "tarjetasGraficas": [
+        {
+          "tarjetaGrafica": "NVIDIA GeForce RTX 3080",
+          "id": 1
+        }
+      ],
+      "id": 4
     }
   ],
   "categorias": [

@@ -1,23 +1,19 @@
 import { Button, Table } from "react-bootstrap";
 import { useState, useEffect } from "react";
+import { listarJuegos } from "../helpers/queries";
 
 const Administrador = () => {
   const [juegos, setJuegos] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const respuesta = await fetch("http://localhost:3004/juegos");
-        const prueba = await respuesta.json();
-
-        setJuegos(prueba);
-      } catch (error) {
-        // Manejar el error si la promesa se rechaza
-        console.error("Error:", error);
-      }
-    };
-
-    fetchData();
+    listarJuegos()
+      .then(listajuegos => {
+        console.log(listajuegos);
+        setJuegos(listajuegos);
+      })
+      .catch(error => {
+        console.error("Error al obtener los juegos:", error);
+      });
   }, []);
 
   return (
@@ -55,19 +51,23 @@ const Administrador = () => {
               <td>
                 <div>Memoria Ram: {juego.memoriaRam}</div>
                 <div>Disco en Duro: {juego.espacioDiscoDuro}</div>
-                <div>Procesador: {juego.procesadores.procesador}</div>
+                <div>{juego.procesadores.map((pr) => (
+                  <span key={pr.id}>{pr.procesador}, </span>
+                ))} </div>
                 <div>
-                  Sistema Operativo: {juego.sistemasOperativos.sistemaOperativo}
+                {juego.sistemasOperativos.map((so) => (
+                  <span key={so.id}>{so.sistemaOperativo}, </span>
+                ))}
                 </div>
                 <div>
-                  Tarjeta Grafica: {juego.tarjetasGraficas.tarjetaGrafica}
+                {juego.tarjetasGraficas.map((tg) => (
+                  <span key={tg.id}>{tg.tarjetaGrafica}, </span>
+                ))}
                 </div>
               </td>
               <td>
                 <div className="d-flex flex-column">
-                  <Button variant="success" className="mb-2">
-                    Agregar
-                  </Button>
+
                   <Button variant="warning" className="mb-2">
                     Editar
                   </Button>

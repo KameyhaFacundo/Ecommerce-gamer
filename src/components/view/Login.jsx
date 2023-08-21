@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { login } from "../helpers/queries";
+import Error404 from "./Error404";
 
 const Login = ({ showModal, handleCloseModal }) => {
   const {
@@ -113,10 +114,18 @@ const Login = ({ showModal, handleCloseModal }) => {
               </div>
             </Col>
           </Form>
-          <Row className="justify-content-center">
-            <Col xs="12" className="mt-2 text-center">
+          <Row className="justify-content-center mb-5">
+            <Col xs="6" className="mt-2 text-center">
               <Link
-                className="d-block my-4 fs-4 text-white"
+                className=" my-4 fs-4 text-white link-hover"
+                style={{ textDecoration: "none" }}
+              >
+                ¿No tienes una cuenta?
+              </Link>
+            </Col>
+            <Col xs="6" className="mt-2 text-center">
+              <Link
+                className=" my-4 fs-4 text-white link-hover"
                 style={{ textDecoration: "none" }}
               >
                 ¿Has olvidado la contraseña?
@@ -135,7 +144,7 @@ const Login = ({ showModal, handleCloseModal }) => {
                   </Link>
                 </li>
                 <li className="nav-item social-logo mx-2">
-                  <Link className="nav-link mx-2" href="#">
+                  <Link className="nav-link mx-2">
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-tw.svg"
                       alt="twitter-logo"

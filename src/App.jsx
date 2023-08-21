@@ -1,13 +1,11 @@
-import './App.css'
-import Footer from './components/cummon/Footer'
+import "./App.css";
+import Footer from "./components/cummon/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
-
   return (
     <>
-    <Footer></Footer>
+      <Footer></Footer>
     </>
-  )
+  );
 }
-
-export default App
+export default App;

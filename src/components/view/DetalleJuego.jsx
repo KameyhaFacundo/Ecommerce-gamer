@@ -1,3 +1,4 @@
+
 import { Container, Card, Row, Col } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
@@ -105,3 +106,4 @@ const DetalleProducto = () => {
 };
 
 export default DetalleProducto;
+

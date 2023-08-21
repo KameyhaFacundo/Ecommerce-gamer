@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { login } from "../helpers/queries";
-import Error404 from "./Error404";
 
 const Login = ({ showModal, handleCloseModal }) => {
   const {
@@ -229,7 +228,7 @@ const Login = ({ showModal, handleCloseModal }) => {
               border: 0,
             }}
           >
-            Close
+            Cerrar
           </Button>
         </Modal.Footer>
       </Modal>

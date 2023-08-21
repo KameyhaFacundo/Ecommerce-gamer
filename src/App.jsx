@@ -1,8 +1,8 @@
 import "./App.css";
-import Footer from "./components/cummon/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Footer from "./components/cummon/Footer";
 import Login from "./components/view/Login";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 
@@ -19,6 +19,7 @@ function App() {
 
   return (
     <>
+      {/* Aqui pruebo el modal de iniciar sesion  */}
       <div>
         <Button variant="primary" onClick={handleShowModal}>
           Abrir modal

@@ -1,5 +1,6 @@
 import "./App.css";
 import Footer from "./components/cummon/Footer";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import Administrador from "./components/view/Administrador";
 import Inicio from "./components/view/Inicio"
@@ -15,6 +16,8 @@ import Error404 from "./components/view/Error404";
 function App() {
   return (
     <>
+
+
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Inicio></Inicio>}></Route>
@@ -29,6 +32,7 @@ function App() {
           <Route exact path="*" element={<Error404></Error404>}></Route>
         </Routes>
       </BrowserRouter>
+
     </>
   );
 }

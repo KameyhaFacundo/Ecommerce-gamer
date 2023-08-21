@@ -11,6 +11,25 @@ const Login = ({ showModal, handleCloseModal }) => {
     formState: { errors },
   } = useForm();
 
+  const onSubmit = (usuario) => {
+    console.log(usuario);
+    login(usuario).then((respuesta) => {
+      console.log(respuesta);
+      if (respuesta) {
+        Swal.fire(
+          "Bienvenido " + respuesta.nombreUsuario,
+          "Ingresaste a la web cafecito",
+          "success"
+        );
+        // Guardar el usuario en el localstorage o sessionStorage
+        sessionStorage.setItem("usuarioLogeado", JSON.stringify(respuesta));
+        setUsuarioActivo(respuesta);
+      } else {
+        Swal.fire("Ocurrio un error", "Email o password incorrecto", "error");
+      }
+    });
+  };
+
   return (
     <>
       <Modal
@@ -36,8 +55,7 @@ const Login = ({ showModal, handleCloseModal }) => {
             backgroundColor: "#272727",
           }}
         >
-          {/* onSubmit={handleSubmit(onSubmit)} */}
-          <Form className="p-4 my-4 ">
+          <Form onSubmit={handleSubmit(onSubmit)} className="p-4 my-4 ">
             <Form.Group className="mb-3 text-white" controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control

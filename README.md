@@ -34,11 +34,11 @@ git clone https://github.com/KameyhaFacundo/Ecommerce-gamer.git
 
 ## Uso
 
-[^1]: Accede al sitio web desde tu navegador en [eCommerce Gamer](https://rollinggamer.netlify.app/).
-[^2]: Los usuarios pueden registrarse e iniciar sesión desde la página principal.
-[^3]: Una vez autenticados, los usuarios pueden explorar y agregar productos al carrito de compras.
-[^4]: Los administradores pueden acceder al panel de administración.
-[^5]: Desde el panel de administración, los administradores pueden gestionar el catálogo de juegos, realizar acciones de creación, edición y eliminación de productos.
+* Accede al sitio web desde tu navegador en [eCommerce Gamer](https://rollinggamer.netlify.app/).
+* Los usuarios pueden registrarse e iniciar sesión desde la página principal.
+* Una vez autenticados, los usuarios pueden explorar y agregar productos al carrito de compras.
+* Los administradores pueden acceder al panel de administración.
+* Desde el panel de administración, los administradores pueden gestionar el catálogo de juegos, realizar acciones de creación, edición y eliminación de productos.
 
 ## Autores del proyecto
 

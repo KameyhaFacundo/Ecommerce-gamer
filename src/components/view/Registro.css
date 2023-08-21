@@ -51,11 +51,15 @@
 
   .img-bg {
     width: 50vw;
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
     float: left;
     box-sizing: border-box;
   }
+
+.img-bg-luigi{
+    height: 100vh;
+}
 
   .background {
     width: 100%;

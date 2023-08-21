@@ -1,35 +1,56 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './Registro.css'; // Importa el archivo CSS para los estilos
+import { crearUsuario, listarUsuarios } from '../helpers/queries';
+import { useForm } from "react-hook-form";
+
 
 const Registro = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
+  const [usuarios, setUsuarios] = useState('');
   const gmailLogo = 'https://cdn.icon-icons.com/icons2/2631/PNG/512/gmail_new_logo_icon_159149.png';
   const facebookLogo = 'https://cdn.icon-icons.com/icons2/555/PNG/512/facebook_icon-icons.com_53612.png';
   const instagramLogo = 'https://cdn.icon-icons.com/icons2/1753/PNG/512/iconfinder-social-media-applications-3instagram-4102579_113804.png';
   const twitterLogo = 'https://cdn.icon-icons.com/icons2/122/PNG/512/twitter_socialnetwork_20007.png';
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-  };
+ 
 
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
+  useEffect(()=>{
+  listarUsuarios()
+  .then((resultado) => {
+    const ListaUsuarios = resultado;
+    console.log(ListaUsuarios)
+    setUsuarios(ListaUsuarios)
+  })
+},[])
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Aquí puedes hacer la lógica de registro, como enviar los datos al servidor
-    // o realizar validaciones.
-    console.log('Nombre:', name);
-    console.log('Email:', email);
-    console.log('Contraseña:', password);
+  const onSubmit = (datos) => {
+
+   datos["rol"]=false
+   console.log(datos)
+   crearUsuario(datos)
+    // var bandera = false;
+    // {usuarios.map((usuario) => {
+    //   if(datos["email"] === usuario.email)
+    //   {
+    //     bandera=true
+    //   }     
+    // })}
+    // if(bandera===false){
+    //   crearUsuario(datos) 
+    // }
+    // else{
+    //   bandera=true
+    //   console.log("Usuario ya existe")
+      
+    // }
+     
+
   };
 
   return (
@@ -37,37 +58,99 @@ const Registro = () => {
     <div className="d-flex">
        
     <div className='registration-form-container'>
-    <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="name">
-          <Form.Label>Nombre</Form.Label>
-          <Form.Control
-            type="text"
-            value={name}
-            onChange={handleNameChange}
-            required
-          />
-        </Form.Group>
+    <Form onSubmit={handleSubmit(onSubmit)}>
+        
+    <Form.Group className="mb-3" controlId="formnombreUsuario">
+            <Form.Label>Nombre de Usuario</Form.Label>
+            <Form.Control
+              type="text"
+              {...register("nombreUsuario", {
+                required: "Este dato es obligatorio",
+                pattern: {
+                  value: /^[a-zA-ZáéíóúñÁÉÍÓÚÑ\s]*$/,
+                  message: "Debe ingresar solo letras validas",
+                },
+                minLength: {
+                  value: 6,
+                  message: "Debe ingresar como minimo 6 caracteres",
+                },
+                maxLength: {
+                  value: 50,
+                  message: "Debe ingresar como maximo 50 caracteres",
+                },
+              })}
+            />
+            <Form.Text className="text-danger">
+              {errors.nombreUsuario?.message}
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formemail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="text"
+              {...register("email", {
+                required: "Este dato es obligatorio",
+                pattern: {
+                  value: /^[\w\.-]+@[\w\.-]+\.\w+$/,
+                  message: "Debe ingresar solo caracteres validos",
+                },
+                validate: (value) => {
+                  var bandera = false
+                  {{usuarios.map((usuario) => {
+                    if(value === usuario.email) {
+                      bandera=true
+                      console.log("Usuario Invalido")
+                    }     
+                  })}
+                  if(bandera===false){
+                    console.log("Usuario Valido")
 
-        <Form.Group controlId="email">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="email"
-            value={email}
-            onChange={handleEmailChange}
-            required
-          />
-        </Form.Group>
+                  } else {
+                    bandera=true
+                    console.log("Usuario ya existe")
+                    return "El email ya existe";
+                  }
+                }
 
-        <Form.Group controlId="password">
-          <Form.Label>Contraseña</Form.Label>
-          <Form.Control
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-            required
-          />
-        </Form.Group>
-
+              },
+                minLength: {
+                  value: 6,
+                  message: "Debe ingresar como minimo 6 caracteres",
+                },
+                maxLength: {
+                  value: 50,
+                  message: "Debe ingresar como maximo 50 caracteres",
+                },
+              })}
+            />
+            <Form.Text className="text-danger">
+              {errors.email?.message}
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formnpassword">
+            <Form.Label>Contraseña</Form.Label>
+            <Form.Control
+              type="text"
+              {...register("password", {
+                required: "Este dato es obligatorio",
+                pattern: {
+                  value: /^[a-zA-Z0-9áéíóúñÁÉÍÓÚÑ]*$/,
+                  message: "Debe ingresar solo letras y numeros validas",
+                },
+                minLength: {
+                  value: 6,
+                  message: "Debe ingresar como minimo 6 caracteres",
+                },
+                maxLength: {
+                  value: 50,
+                  message: "Debe ingresar como maximo 50 caracteres",
+                },
+              })}
+            />
+            <Form.Text className="text-danger">
+              {errors.password?.message}
+            </Form.Text>
+          </Form.Group>
         <Button variant="primary" type="submit">
           Registrarse
         </Button>
@@ -98,7 +181,7 @@ const Registro = () => {
     </div>
     <div className='img-bg'>
       <img className='img-luigi' src="https://res.cloudinary.com/dol1ba0ld/image/upload/v1692601369/image-removebg-preview_55_vy6twe.png" alt="" />
-      <img src="https://img.freepik.com/vector-premium/viejo-videojuego-estilo-retro-fondo-vector-ilustracion_230920-1786.jpg" alt="" />
+      <img className='img-bg-luigi' src="https://img.freepik.com/vector-premium/viejo-videojuego-estilo-retro-fondo-vector-ilustracion_230920-1786.jpg" alt="" />
     </div>
     </div>
   );

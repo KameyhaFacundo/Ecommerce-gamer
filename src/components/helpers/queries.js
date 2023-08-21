@@ -8,6 +8,10 @@ const fetchData = async (url) => {
     }
   };
   
+  export const listarUsuarios = async () => {
+    return fetchData("http://localhost:3004/usuarios");
+  };
+
   export const listarJuegos = async () => {
     return fetchData("http://localhost:3004/juegos");
   };
@@ -38,6 +42,22 @@ const fetchData = async (url) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(juego),
+      });
+  
+      return resp;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  export const crearUsuario = async (Usuario) => {
+    try {
+      const resp = await fetch("http://localhost:3004/usuarios", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(Usuario),
       });
   
       return resp;

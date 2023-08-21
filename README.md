@@ -1,4 +1,4 @@
-# eCommerce Gamer :joystick:
+# eCommerce Gamer :joystick: :computer: :video_game:
 
 ![Logo del Proyecto](https://www.goeasytwitch.com/wp-content/uploads/2020/03/logov2.png)
 
@@ -34,11 +34,11 @@ git clone https://github.com/KameyhaFacundo/Ecommerce-gamer.git
 
 ## Uso
 
-* Accede al sitio web desde tu navegador en [eCommerce Gamer](https://rollinggamer.netlify.app/).
-* Los usuarios pueden registrarse e iniciar sesión desde la página principal.
-* Una vez autenticados, los usuarios pueden explorar y agregar productos al carrito de compras.
-* Los administradores pueden acceder al panel de administración.
-* Desde el panel de administración, los administradores pueden gestionar el catálogo de juegos, realizar acciones de creación, edición y eliminación de productos.
+- Accede al sitio web desde tu navegador en [eCommerce Gamer](https://rollinggamer.netlify.app/).
+- Los usuarios pueden registrarse e iniciar sesión desde la página principal.
+- Una vez autenticados, los usuarios pueden explorar y agregar productos al carrito de compras.
+- Los administradores pueden acceder al panel de administración.
+- Desde el panel de administración, los administradores pueden gestionar el catálogo de juegos, realizar acciones de creación, edición y eliminación de productos.
 
 ## Autores del proyecto
 
@@ -47,3 +47,5 @@ git clone https://github.com/KameyhaFacundo/Ecommerce-gamer.git
 3. Figueroa Lucas
 4. Luis Altamiranda
 5. Ailan Alvaro
+
+Copyright (c) 2020 -2023

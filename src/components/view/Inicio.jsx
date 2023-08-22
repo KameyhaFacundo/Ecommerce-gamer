@@ -87,7 +87,7 @@ function Inicio() {
   };
 
   return (
-    <div>
+    <div className="body-search">
       <CarrouselInicio></CarrouselInicio>
       <Form>
         <FormGroup>

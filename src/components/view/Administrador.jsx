@@ -1,10 +1,21 @@
-import { Button, Table } from "react-bootstrap";
+import { Table, Pagination, Button } from 'react-bootstrap';
+import "./Administrador.css"
 import { useState, useEffect } from "react";
 import { listarJuegos } from "../helpers/queries";
+import ItemJuego from "./juego/ItemJuego";
+import { Link } from 'react-router-dom';
 
 const Administrador = () => {
   const [juegos, setJuegos] = useState([]);
+  const itemsPerPage = 5;
+  const [currentPage, setCurrentPage] = useState(1);
 
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentJuegos = juegos.slice(startIndex, startIndex + itemsPerPage);
   useEffect(() => {
     listarJuegos()
       .then(listajuegos => {
@@ -19,67 +30,43 @@ const Administrador = () => {
   return (
     <section className="container mainSection">
       <div className="d-flex justify-content-between align-items-center mt-5">
-        <h1 className="display-4 ">Juegos disponibles</h1>
+        <h1 className="display-4 " >Juegos disponibles</h1>
+        <Link to={"crear"}> <Button variant='success' >Agregar Juego</Button></Link>
+       
       </div>
       <hr />
       <Table responsive striped bordered hover>
         <thead>
           <tr>
-            <th>Codigo</th>
-            <th>Juego</th>
-            <th>Precio</th>
-            <th>URL de Imagen</th>
-            <th>Categoria</th>
-            <th>Fecha de Lanzamiento</th>
-            <th>Requerimiento del Sistema</th>
-            <th>Opciones</th>
+            <th className='d-none d-md-table-cell'>Codigo</th>
+            <th className='movile-adapt'>Juego</th>
+            <th className='d-none d-md-table-cell'>Precio</th>
+            <th className="d-none d-xl-block">Imagen</th>
+            <th className="d-none d-xl-table-cell">Categoria</th>
+            {/* <th>Fecha de Lanzamiento</th>
+            <th>Requerimiento del Sistema</th> */}
+            <th className='movile-adapt'>Opciones</th>
           </tr>
         </thead>
         <tbody>
-          {juegos.map((juego) => (
-            <tr key={juego.id}>
-              <td>{juego.id}</td>
-              <td>{juego.nombreJuego}</td>
-              <td>{juego.precio}</td>
-              <td></td>
-              <td>
-                {juego.categorias.map((cat) => (
-                  <span key={cat.id}>{cat.categoria}, </span>
-                ))}
-              </td>
-              <td>{juego.fechaDeLanzamiento}</td>
-              <td>
-                <div>Memoria Ram: {juego.memoriaRam}</div>
-                <div>Disco en Duro: {juego.espacioDiscoDuro}</div>
-                <div>{juego.procesadores.map((pr) => (
-                  <span key={pr.id}>{pr.procesador}, </span>
-                ))} </div>
-                <div>
-                {juego.sistemasOperativos.map((so) => (
-                  <span key={so.id}>{so.sistemaOperativo}, </span>
-                ))}
-                </div>
-                <div>
-                {juego.tarjetasGraficas.map((tg) => (
-                  <span key={tg.id}>{tg.tarjetaGrafica}, </span>
-                ))}
-                </div>
-              </td>
-              <td>
-                <div className="d-flex flex-column">
-
-                  <Button variant="warning" className="mb-2">
-                    Editar
-                  </Button>
-                  <Button variant="danger" className="mb-2">
-                    Eliminar
-                  </Button>
-                </div>
-              </td>
-            </tr>
+          {currentJuegos.map((juego) => (
+            <ItemJuego key={juego.id} {...juego}></ItemJuego>
           ))}
         </tbody>
       </Table>
+      {currentJuegos.length > 0 && (
+        <Pagination className="d-flex justify-content-center mt-5">
+          {Array.from({ length: Math.ceil(juegos.length / itemsPerPage) }).map((_, index) => (
+            <Pagination.Item
+              key={index + 1}
+              active={index + 1 === currentPage}
+              onClick={() => handlePageChange(index + 1)}
+            >
+              {index + 1}
+            </Pagination.Item>
+          ))}
+        </Pagination>
+      )}
     </section>
   );
 };

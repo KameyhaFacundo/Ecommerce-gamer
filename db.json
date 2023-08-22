@@ -52,26 +52,31 @@
       "password": "123456cC",
       "rol": false,
       "id": 3
+    },
+    {
+      "nombreUsuario": "Mauro123",
+      "email": "Jose1@rolling.com",
+      "password": "123456",
+      "rol": false,
+      "id": 4
     }
   ],
   "juegos": [
     {
-      "id": 1,
       "nombreJuego": "God of War",
       "precio": "500",
       "fechaDeLanzamiento": "22-03-2005",
-      "imagen": "https://juegosdigitalesargentina.com/files/images/thumbs/productos_300x400_1570562696-god-of-war-ps4.png",
-      "descripcion": "God of War transcurre en una versión alternativa de la Antigua Grecia, donde existen seres mitológicos como los dioses o los titanes. Con la excepción de flashbacks, los hechos transcurren entre los juegos Chains of Olympus (2008) y Ghost of Sparta (2010). Hay seis localizaciones a explorar, siendo reales el Mar Egeo o la ciudad de Atenas y ficticias el Desierto de las Almas Perdidas, el Templo de Pandora, el Inframundo y una pequeña escena en el Monte Olimpo.",
       "desarrollador": "SIE Santa Monica Studio",
-      "resenias": "",
-      "memoriaRam": "4G",
-      "espacioDiscoDuro": "10G",
+      "descripcion": "God of War transcurre en una versión alternativa de la Antigua Grecia, donde existen seres mitológicos como los dioses o los titanes. Con la excepción de flashbacks, los hechos transcurren entre los juegos Chains of Olympus (2008) y Ghost of Sparta (2010). Hay seis localizaciones a explorar, siendo reales el Mar Egeo o la ciudad de Atenas y ficticias el Desierto de las Almas Perdidas, el Templo de Pandora, el Inframundo y una pequeña escena en el Monte Olimpo.",
       "categorias": [
         {
           "categoria": "SandBox",
           "id": 1
         }
       ],
+      "imagen": "https://juegosdigitalesargentina.com/files/images/thumbs/productos_300x400_1570562696-god-of-war-ps4.png",
+      "memoriaRam": "4",
+      "espacioDiscoDuro": "18",
       "procesadores": [
         {
           "procesador": "Apple M1",
@@ -86,32 +91,27 @@
       ],
       "tarjetasGraficas": [
         {
-          "tarjetaGrafica": "NVIDIA GeForce GTX 1660 Ti",
-          "id": 3
+          "tarjetaGrafica": "AMD Radeon RX 6800 XT",
+          "id": 2
         }
-      ]
+      ],
+      "id": 1
     },
     {
-      "id": 2,
       "nombreJuego": "Minecraft",
       "precio": "1000",
       "fechaDeLanzamiento": "17-05-2009",
-      "imagen": "https://juegosdigitalesargentina.com/files/images/productos/1649441100-minecraft-ps4-0.jpg",
-      "descripcion": "Explora un mundo inmenso y completamente único en Minecraft, el juego de construcción y aventuras que ha capturado los corazones de jugadores de todas las edades. Creado por Mojang Studios, Minecraft te ofrece una experiencia de juego infinitamente creativa y emocionante.",
       "desarrollador": "Mojanj Studios",
-      "resenias": "",
-      "memoriaRam": "8G",
-      "espacioDiscoDuro": "32G",
+      "descripcion": "Explora un mundo inmenso y completamente único en Minecraft, el juego de construcción y aventuras que ha capturado los corazones de jugadores de todas las edades. Creado por Mojang Studios, Minecraft te ofrece una experiencia de juego infinitamente creativa y emocionante.",
       "categorias": [
         {
           "categoria": "SandBox",
           "id": 1
-        },
-        {
-          "categoria": "Construccion",
-          "id": 4
         }
       ],
+      "imagen": "https://juegosdigitalesargentina.com/files/images/productos/1649441100-minecraft-ps4-0.jpg",
+      "memoriaRam": "8",
+      "espacioDiscoDuro": "32",
       "procesadores": [
         {
           "procesador": "AMD Ryzen 7 5800X",
@@ -120,7 +120,7 @@
       ],
       "sistemasOperativos": [
         {
-          "tarjetaGrafica": "NVIDIA GeForce RTX 3080",
+          "sistemaOperativo": "WINDOWS",
           "id": 1
         }
       ],
@@ -129,7 +129,8 @@
           "tarjetaGrafica": "AMD Radeon RX 6800 XT",
           "id": 2
         }
-      ]
+      ],
+      "id": 2
     },
     {
       "id": 3,
@@ -140,8 +141,8 @@
       "descripcion": "La serie Grand Theft Auto, también conocida como GTA, es famosa por su enfoque en mundos abiertos y su énfasis en la libertad del jugador. En estos juegos, los jugadores asumen roles de personajes que a menudo están involucrados en actividades criminales en ciudades ficticias, en las que pueden explorar, realizar misiones, interactuar con personajes y vehículos, y en general experimentar una gran variedad de actividades.",
       "desarrollador": "Rockstar Games",
       "resenias": "",
-      "memoriaRam": "6G",
-      "espacioDiscoDuro": "24G",
+      "memoriaRam": "6",
+      "espacioDiscoDuro": "24",
       "categorias": [
         {
           "categoria": "Simulacion",
@@ -271,6 +272,41 @@
         }
       ],
       "id": 6
+    },
+    {
+      "nombreJuego": "Spiderman",
+      "precio": "700.45",
+      "fechaDeLanzamiento": "01-01-2002",
+      "desarrollador": "sadassdadsasd",
+      "descripcion": "asdasasdassadsasdsadsdsdsadsadsadsadas",
+      "categorias": [
+        {
+          "categoria": "Simulacion",
+          "id": 2
+        }
+      ],
+      "imagen": "https://juegosdigitalesargentina.com/files/images/productos/1629828562-marvels-spider-man-game-of-the-year-edition-ps4.jpg",
+      "memoriaRam": "6",
+      "espacioDiscoDuro": "128",
+      "procesadores": [
+        {
+          "procesador": "AMD Ryzen 7 5800X",
+          "id": 2
+        }
+      ],
+      "sistemasOperativos": [
+        {
+          "sistemaOperativo": "MAC OS",
+          "id": 2
+        }
+      ],
+      "tarjetasGraficas": [
+        {
+          "tarjetaGrafica": "NVIDIA Quadro P2000",
+          "id": 5
+        }
+      ],
+      "id": 7
     }
   ],
   "categorias": [
@@ -360,5 +396,18 @@
       "tarjetaGrafica": "NVIDIA Quadro P2000",
       "id": 5
     }
+  ],
+  "juegosStorage":[
+    {
+      "idUsuario": 1,
+      "idJuego": 1,
+      "id": 1
+    },
+    {
+      "idUsuario": 1,
+      "idJuego": 2,
+      "id": 1
+    }
+
   ]
 }

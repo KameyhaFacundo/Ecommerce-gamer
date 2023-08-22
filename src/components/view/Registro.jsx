@@ -3,6 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import './Registro.css'; // Importa el archivo CSS para los estilos
 import { crearUsuario, listarUsuarios } from '../helpers/queries';
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 
 const Registro = () => {
@@ -33,7 +34,27 @@ const Registro = () => {
 
    datos["rol"]=false
    console.log(datos)
-   crearUsuario(datos)
+   crearUsuario(datos).then((resp) => {
+    console.log(resp.status);
+    if (resp.status === 201) {
+      Swal.fire(
+        "Usuario Registrado",
+        "Su Usuario se creo correctamente",
+        "success"
+      );
+      reset();
+    }
+  })
+  .catch((error) => {
+    console.log(error);
+    Swal.fire(
+      "Hubo un error",
+      "Error al intentar Crear el Usuario",
+      "error"
+    );
+  });
+   reset()
+      
     // var bandera = false;
     // {usuarios.map((usuario) => {
     //   if(datos["email"] === usuario.email)
@@ -67,7 +88,7 @@ const Registro = () => {
               {...register("nombreUsuario", {
                 required: "Este dato es obligatorio",
                 pattern: {
-                  value: /^[a-zA-ZáéíóúñÁÉÍÓÚÑ\s]*$/,
+                  value: /^[a-zA-Z0-9áéíóúñÁÉÍÓÚÑ\s]*$/,
                   message: "Debe ingresar solo letras validas",
                 },
                 minLength: {

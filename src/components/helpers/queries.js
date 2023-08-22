@@ -12,6 +12,10 @@ const fetchData = async (url) => {
     return fetchData("http://localhost:3004/usuarios");
   };
 
+  export const listarJuegosStorage = async () => {
+    return fetchData("http://localhost:3004/juegosStorage");
+  };
+
   export const listarJuegos = async () => {
     return fetchData("http://localhost:3004/juegos");
   };
@@ -60,6 +64,43 @@ const fetchData = async (url) => {
         body: JSON.stringify(Usuario),
       });
   
+      return resp;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  export const obtenerJuego = async (id) => {
+    try {
+      console.log(id)
+      const resp = await fetch("http://localhost:3004/juegos/"+id);
+      const data = await resp.json();
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  export const editarJuego = async (id, juegoEditado) => {
+    try {
+      const resp = await fetch("http://localhost:3004/juegos/"+id, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(juegoEditado),
+      });
+      return resp;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  export const eliminarJuego = async (id) => {
+    try {
+      const resp = await fetch(`http://localhost:3004/juegos/${id}`, {
+        method: 'DELETE',
+      });
       return resp;
     } catch (error) {
       console.log(error);

@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { login } from "../helpers/queries";
-import Error404 from "./Error404";
 
 const Login = ({ showModal, handleCloseModal }) => {
   const {
@@ -19,12 +18,12 @@ const Login = ({ showModal, handleCloseModal }) => {
       if (respuesta) {
         Swal.fire(
           "Bienvenido " + respuesta.nombreUsuario,
-          "Ingresaste a la web cafecito",
+          "Ingresaste a Tucu Gamer",
           "success"
         );
-        // Guardar el usuario en el localstorage o sessionStorage
+
         sessionStorage.setItem("usuarioLogeado", JSON.stringify(respuesta));
-        setUsuarioActivo(respuesta);
+        // setUsuarioActivo(respuesta);
       } else {
         Swal.fire("Ocurrio un error", "Email o password incorrecto", "error");
       }

@@ -7,6 +7,10 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 
 function App() {
+  {
+    /* Esto lo uso de prueba para probar el modal,lo que iria en el nav */
+  }
+
   const [showModal, setShowModal] = useState(false);
 
   const handleCloseModal = () => {
@@ -19,17 +23,13 @@ function App() {
 
   return (
     <>
-      <div>
+      <BrowserRouter>
+        {/* Esto lo uso de prueba para probar el modal,lo que iria en el nav */}
         <Button variant="primary" onClick={handleShowModal}>
           Abrir modal
         </Button>
-
-        <BrowserRouter>
-          <Login showModal={showModal} handleCloseModal={handleCloseModal} />
-        </BrowserRouter>
-      </div>
-
-      <Footer></Footer>
+        <Login showModal={showModal} handleCloseModal={handleCloseModal} />
+      </BrowserRouter>
     </>
   );
 }

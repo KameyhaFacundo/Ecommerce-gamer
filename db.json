@@ -1,0 +1,364 @@
+{
+  "programadores": [
+    {
+      "nombreProgramador": "Ailan Alvaro",
+      "edad": 30,
+      "imagen": "https://images.pexels.com/photos/3020919/pexels-photo-3020919.jpeg",
+      "id": 1
+    },
+    {
+      "nombreProgramador": "Altamiranda Luis",
+      "edad": 30,
+      "imagen": "https://images.pexels.com/photos/3020919/pexels-photo-3020919.jpeg",
+      "id": 2
+    },
+    {
+      "nombreProgramador": "Altamiranda Luis",
+      "edad": 30,
+      "imagen": "https://images.pexels.com/photos/3020919/pexels-photo-3020919.jpeg",
+      "id": 3
+    },
+    {
+      "nombreProgramador": "Figueroa Lucas",
+      "edad": 30,
+      "imagen": "https://images.pexels.com/photos/3020919/pexels-photo-3020919.jpeg",
+      "id": 4
+    },
+    {
+      "nombreProgramador": "Villagra Mauro",
+      "edad": 30,
+      "imagen": "https://images.pexels.com/photos/3020919/pexels-photo-3020919.jpeg",
+      "id": 5
+    }
+  ],
+  "usuarios": [
+    {
+      "nombreUsuario": "Admin",
+      "email": "admin@rolling.com",
+      "password": "123456aA",
+      "rol": true,
+      "id": 1
+    },
+    {
+      "nombreUsuario": "Jose",
+      "email": "Jose@rolling.com",
+      "password": "123456bB",
+      "rol": false,
+      "id": 2
+    },
+    {
+      "nombreUsuario": "Maria",
+      "email": "Maria@rolling.com",
+      "password": "123456cC",
+      "rol": false,
+      "id": 3
+    }
+  ],
+  "juegos": [
+    {
+      "id": 1,
+      "nombreJuego": "God of War",
+      "precio": "500",
+      "fechaDeLanzamiento": "22-03-2005",
+      "imagen": "https://juegosdigitalesargentina.com/files/images/thumbs/productos_300x400_1570562696-god-of-war-ps4.png",
+      "descripcion": "God of War transcurre en una versión alternativa de la Antigua Grecia, donde existen seres mitológicos como los dioses o los titanes. Con la excepción de flashbacks, los hechos transcurren entre los juegos Chains of Olympus (2008) y Ghost of Sparta (2010). Hay seis localizaciones a explorar, siendo reales el Mar Egeo o la ciudad de Atenas y ficticias el Desierto de las Almas Perdidas, el Templo de Pandora, el Inframundo y una pequeña escena en el Monte Olimpo.",
+      "desarrollador": "SIE Santa Monica Studio",
+      "resenias": "",
+      "memoriaRam": "4G",
+      "espacioDiscoDuro": "10G",
+      "categorias": [
+        {
+          "categoria": "SandBox",
+          "id": 1
+        }
+      ],
+      "procesadores": [
+        {
+          "procesador": "Apple M1",
+          "id": 3
+        }
+      ],
+      "sistemasOperativos": [
+        {
+          "sistemaOperativo": "MAC OS",
+          "id": 2
+        }
+      ],
+      "tarjetasGraficas": [
+        {
+          "tarjetaGrafica": "NVIDIA GeForce GTX 1660 Ti",
+          "id": 3
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nombreJuego": "Minecraft",
+      "precio": "1000",
+      "fechaDeLanzamiento": "17-05-2009",
+      "imagen": "https://juegosdigitalesargentina.com/files/images/productos/1649441100-minecraft-ps4-0.jpg",
+      "descripcion": "Explora un mundo inmenso y completamente único en Minecraft, el juego de construcción y aventuras que ha capturado los corazones de jugadores de todas las edades. Creado por Mojang Studios, Minecraft te ofrece una experiencia de juego infinitamente creativa y emocionante.",
+      "desarrollador": "Mojanj Studios",
+      "resenias": "",
+      "memoriaRam": "8G",
+      "espacioDiscoDuro": "32G",
+      "categorias": [
+        {
+          "categoria": "SandBox",
+          "id": 1
+        },
+        {
+          "categoria": "Construccion",
+          "id": 4
+        }
+      ],
+      "procesadores": [
+        {
+          "procesador": "AMD Ryzen 7 5800X",
+          "id": 2
+        }
+      ],
+      "sistemasOperativos": [
+        {
+          "tarjetaGrafica": "NVIDIA GeForce RTX 3080",
+          "id": 1
+        }
+      ],
+      "tarjetasGraficas": [
+        {
+          "tarjetaGrafica": "AMD Radeon RX 6800 XT",
+          "id": 2
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nombreJuego": "Grand Theft Auto",
+      "precio": "500",
+      "fechaDeLanzamiento": "10-10-1997",
+      "imagen": "https://juegosdigitalesargentina.com/files/images/productos/1474351766-gta-5-ps3-chile.jpg",
+      "descripcion": "La serie Grand Theft Auto, también conocida como GTA, es famosa por su enfoque en mundos abiertos y su énfasis en la libertad del jugador. En estos juegos, los jugadores asumen roles de personajes que a menudo están involucrados en actividades criminales en ciudades ficticias, en las que pueden explorar, realizar misiones, interactuar con personajes y vehículos, y en general experimentar una gran variedad de actividades.",
+      "desarrollador": "Rockstar Games",
+      "resenias": "",
+      "memoriaRam": "6G",
+      "espacioDiscoDuro": "24G",
+      "categorias": [
+        {
+          "categoria": "Simulacion",
+          "id": 2
+        }
+      ],
+      "procesadores": [
+        {
+          "procesador": "Apple M1",
+          "id": 3
+        }
+      ],
+      "sistemasOperativos": [
+        {
+          "sistemaOperativo": "ANDROID",
+          "id": 4
+        }
+      ],
+      "tarjetasGraficas": [
+        {
+          "tarjetaGrafica": "NVIDIA GeForce GTX 1660 Ti",
+          "id": 3
+        }
+      ]
+    },
+    {
+      "nombreJuego": "Mario Bros",
+      "precio": "500",
+      "fechaDeLanzamiento": "01-01-2002",
+      "desarrollador": "Nintendo",
+      "descripcion": "\"Super Mario Bros.\" es un juego de plataformas en el que los jugadores controlan a Mario, un fontanero aventurero, en su búsqueda por rescatar a la Princesa Peach del malvado Rey Bowser. El juego se desarrolla en el Reino Champiñón, un mundo ficticio lleno de niveles y mundos variados que Mario debe atravesar para llegar al castillo final donde se encuentra la princesa.",
+      "categorias": [
+        {
+          "categoria": "Construccion",
+          "id": 4
+        }
+      ],
+      "imagen": "https://juegosdigitalesargentina.com/files/images/productos/1637887447-new-super-mario-bros-u-deluxe-nintendo-switch.jpg",
+      "memoriaRam": "4",
+      "espacioDiscoDuro": "128",
+      "procesadores": [
+        {
+          "procesador": "Apple M1",
+          "id": 3
+        }
+      ],
+      "sistemasOperativos": [
+        {
+          "sistemaOperativo": "WINDOWS",
+          "id": 1
+        }
+      ],
+      "tarjetasGraficas": [
+        {
+          "tarjetaGrafica": "NVIDIA Quadro P2000",
+          "id": 5
+        }
+      ],
+      "id": 4
+    },
+    {
+      "nombreJuego": "The Last Of Us Remastered",
+      "precio": "750.50",
+      "fechaDeLanzamiento": "02-05-2020",
+      "desarrollador": "Naughty Dog",
+      "descripcion": "\"The Last of Us Remastered\" es una versión mejorada y adaptada para la PlayStation 4 del juego original \"The Last of Us\", que fue lanzado inicialmente para la PlayStation 3 en 2013. La versión remasterizada incluye mejoras gráficas, contenido adicional y todas las expansiones lanzadas previamente.",
+      "categorias": [
+        {
+          "categoria": "Simulacion",
+          "id": 2
+        }
+      ],
+      "imagen": "https://juegosdigitalesargentina.com/files/images/productos/1654982858-the-last-of-us-remastered-part-i-ps5-pre-orden-0.jpg",
+      "memoriaRam": "4",
+      "espacioDiscoDuro": "512",
+      "procesadores": [
+        {
+          "procesador": "IBM POWER9",
+          "id": 5
+        }
+      ],
+      "sistemasOperativos": [
+        {
+          "sistemaOperativo": "MAC OS",
+          "id": 2
+        }
+      ],
+      "tarjetasGraficas": [
+        {
+          "tarjetaGrafica": "NVIDIA Quadro P2000",
+          "id": 5
+        }
+      ],
+      "id": 5
+    },
+    {
+      "nombreJuego": "Pro Evolution Soccer Pes 2019",
+      "precio": "350.25",
+      "fechaDeLanzamiento": "04-12-2003",
+      "desarrollador": "Konami",
+      "descripcion": "\"Pro Evolution Soccer 2019\" (PES 2019) es un videojuego de simulación de fútbol desarrollado por Konami como parte de la serie \"Pro Evolution Soccer\" (PES), también conocida como \"Winning Eleven\" en algunas regiones. La serie PES es una franquicia popular de videojuegos de fútbol que compite directamente con la serie \"FIFA\" de Electronic Arts.",
+      "categorias": [
+        {
+          "categoria": "Simulacion",
+          "id": 2
+        }
+      ],
+      "imagen": "https://juegosdigitalesargentina.com/files/images/thumbs/productos_300x400_1689627437-pro-evolution-soccer-pes-2019-ps5-0.jpg",
+      "memoriaRam": "12",
+      "espacioDiscoDuro": "1024",
+      "procesadores": [
+        {
+          "procesador": "Apple M1",
+          "id": 3
+        }
+      ],
+      "sistemasOperativos": [
+        {
+          "sistemaOperativo": "LINUX",
+          "id": 3
+        }
+      ],
+      "tarjetasGraficas": [
+        {
+          "tarjetaGrafica": "NVIDIA Quadro P2000",
+          "id": 5
+        }
+      ],
+      "id": 6
+    }
+  ],
+  "categorias": [
+    {
+      "categoria": "SandBox",
+      "id": 1
+    },
+    {
+      "categoria": "Simulacion",
+      "id": 2
+    },
+    {
+      "categoria": "Fabricacion",
+      "id": 3
+    },
+    {
+      "categoria": "Construccion",
+      "id": 4
+    },
+    {
+      "categoria": "Aventura",
+      "id": 5
+    }
+  ],
+  "procesadores": [
+    {
+      "procesador": "Intel Core i7-11700K",
+      "id": 1
+    },
+    {
+      "procesador": "AMD Ryzen 7 5800X",
+      "id": 2
+    },
+    {
+      "procesador": "Apple M1",
+      "id": 3
+    },
+    {
+      "procesador": "Qualcomm Snapdragon 888",
+      "id": 4
+    },
+    {
+      "procesador": "IBM POWER9",
+      "id": 5
+    }
+  ],
+  "sistemasOperativos": [
+    {
+      "sistemaOperativo": "WINDOWS",
+      "id": 1
+    },
+    {
+      "sistemaOperativo": "MAC OS",
+      "id": 2
+    },
+    {
+      "sistemaOperativo": "LINUX",
+      "id": 3
+    },
+    {
+      "sistemaOperativo": "ANDROID",
+      "id": 4
+    },
+    {
+      "sistemaOperativo": "IOS",
+      "id": 5
+    }
+  ],
+  "tarjetasGraficas": [
+    {
+      "tarjetaGrafica": "NVIDIA GeForce RTX 3080",
+      "id": 1
+    },
+    {
+      "tarjetaGrafica": "AMD Radeon RX 6800 XT",
+      "id": 2
+    },
+    {
+      "tarjetaGrafica": "NVIDIA GeForce GTX 1660 Ti",
+      "id": 3
+    },
+    {
+      "tarjetaGrafica": "AMD Radeon RX 570",
+      "id": 4
+    },
+    {
+      "tarjetaGrafica": "NVIDIA Quadro P2000",
+      "id": 5
+    }
+  ]
+}

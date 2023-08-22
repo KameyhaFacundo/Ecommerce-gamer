@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import '../estilosComponentes/Error404.css'
 import Footer from '../cummon/Footer'
@@ -40,4 +41,9 @@ const Error404 = () => {
     );
 };
 
-export default Error404;
+export default Error404
+
+
+
+
+

@@ -1,0 +1,9 @@
+.select-option-categoria{
+    max-width: 20vw;
+    margin: 1vw 1vw 1vw 5vw;
+}
+
+body{
+    min-height: 100vh;
+    min-width: 100vw;
+}

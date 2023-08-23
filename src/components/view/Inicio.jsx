@@ -71,7 +71,6 @@ function Inicio() {
     });
 
     console.log("juegosFiltrados:", juegosFiltrados);
-    console.log(NuevaListaJuegos)
     if (parseInt(datos["categorias"]) === 0) {
       setJuegos(NuevaListaJuegos);
     } else {

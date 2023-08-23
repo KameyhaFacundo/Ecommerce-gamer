@@ -41,12 +41,12 @@ const DetalleJuego = () => {
               />
             </Col>
             <Col xl={6}>
-              <Card.Body i>
+              <Card.Body>
                 <Card.Title className="text-light mt-4">
                   <h1> {juego.nombreJuego}</h1>
                 </Card.Title>
                 <hr />
-                <Card.Text className="text-light">
+                <div className="text-light">
                   <h5> {juego.descripcion}</h5>
                   <br />
                   <br />
@@ -66,7 +66,7 @@ const DetalleJuego = () => {
                     <h3>Precio: ${juego.precio}</h3>
                   </span>
                   <br />
-                </Card.Text>
+                </div>
               </Card.Body>
             </Col>
           </Row>

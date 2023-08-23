@@ -1,3 +1,13 @@
+const uriUsuario = import.meta.env.VITE_API_USUARIO;
+const uriJuegos = import.meta.env.VITE_API_JUEGOS;
+const uriCategorias = import.meta.env.VITE_API_CATEGORIAS;
+const uriJuegosStorage = import.meta.env.VITE_API_JUEGOSSTORAGE;
+const uriSistemasOperativos = import.meta.env.VITE_API_SISTEMASOPERATIVOS;
+const uriTarjetasGraficas = import.meta.env.VITE_API_TAJETAGRAFICAS;
+const uriProcesadores = import.meta.env.VITE_API_PROCESADORES;
+
+
+
 const fetchData = async (url) => {
     try {
       const respuesta = await fetch(url);
@@ -8,39 +18,63 @@ const fetchData = async (url) => {
     }
   };
   
+  export const login = async (usuario) => {
+    try {
+      const respuesta = await fetch(uriUsuario);
+      const listaUsuarios = await respuesta.json();
+  
+      const usuarioBuscado = listaUsuarios.find(
+        (itemUsuario) => itemUsuario.email === usuario.email
+      );
+      if (usuarioBuscado) {
+        if (usuarioBuscado.password === usuario.password) {
+          return usuarioBuscado;
+        } else {
+          return null;
+        }
+      } else {
+        return null;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   export const listarUsuarios = async () => {
-    return fetchData("http://localhost:3004/usuarios");
+    return fetchData(uriUsuario);
   };
 
   export const listarJuegosStorage = async () => {
-    return fetchData("http://localhost:3004/juegosStorage");
+    return fetchData(uriJuegosStorage);
   };
 
   export const listarJuegos = async () => {
-    return fetchData("http://localhost:3004/juegos");
+    return fetchData(uriJuegos);
   };
   
   export const listarCategorias = async () => {
-    return fetchData("http://localhost:3004/categorias");
+    return fetchData(uriCategorias);
   };
   
   export const listarProcesadores = async () => {
-    return fetchData("http://localhost:3004/procesadores");
+    return fetchData(uriProcesadores);
   };
   
   export const listarSistemasOperativos = async () => {
-    return fetchData("http://localhost:3004/sistemasOperativos");
+    return fetchData(uriSistemasOperativos);
   };
   
   export const listarTarjetasGraficas = async () => {
-    return fetchData("http://localhost:3004/tarjetasGraficas");
+    return fetchData(uriTarjetasGraficas);
   };
+
+
   
 
 
   export const crearJuego = async (juego) => {
     try {
-      const resp = await fetch("http://localhost:3004/juegos", {
+      const resp = await fetch(uriJuegos, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -56,7 +90,7 @@ const fetchData = async (url) => {
 
   export const crearUsuario = async (Usuario) => {
     try {
-      const resp = await fetch("http://localhost:3004/usuarios", {
+      const resp = await fetch(uriUsuario, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -73,7 +107,7 @@ const fetchData = async (url) => {
   export const obtenerJuego = async (id) => {
     try {
       console.log(id)
-      const resp = await fetch("http://localhost:3004/juegos/"+id);
+      const resp = await fetch(`${uriJuegos}/${id}`);
       const data = await resp.json();
       return data;
     } catch (error) {
@@ -83,7 +117,7 @@ const fetchData = async (url) => {
 
   export const editarJuego = async (id, juegoEditado) => {
     try {
-      const resp = await fetch("http://localhost:3004/juegos/"+id, {
+      const resp = await fetch(`${uriJuegos}/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -98,9 +132,29 @@ const fetchData = async (url) => {
 
   export const eliminarJuego = async (id) => {
     try {
-      const resp = await fetch(`http://localhost:3004/juegos/${id}`, {
+      const resp = await fetch(`${uriJuegos}/${id}`, {
         method: 'DELETE',
       });
+      return resp;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  export const CrearjuegosStorage = async (id, usarioId) => {
+    try {
+      const juegosStorage = {
+        idJuego: parseInt(id),
+        idUsuario: usarioId
+      }
+      const resp = await fetch(uriJuegosStorage, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(juegosStorage),
+      });
+  
       return resp;
     } catch (error) {
       console.log(error);

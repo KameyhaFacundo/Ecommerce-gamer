@@ -76,8 +76,6 @@ function EditarJuego() {
       const procesadorId = resp.procesadores[0].id;
       const sistemaOperativoId = resp.sistemasOperativos[0].id;
       const tarjetaGraficaId = resp.tarjetasGraficas[0].id;
-
-      console.log(resp)
       setValue("nombreJuego", resp.nombreJuego),
       setValue("precio", resp.precio),
       setValue("desarrollador", resp.desarrollador),

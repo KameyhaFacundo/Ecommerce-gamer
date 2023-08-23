@@ -1,6 +1,7 @@
 .select-option-categoria{
     max-width: 20vw;
     margin: 1vw 1vw 1vw 5vw;
+    
 }
 
 .img-3d-1{
@@ -10,11 +11,24 @@
     z-index: 2;
     bottom: 20vh;
     left: 1vw;
-    height: 40vh;
-    width: 30vw;
+    height: 60vh;
+    width: 20vw;
 }
 
 body{
     min-height: 100vh;
     min-width: 100vw;
+}
+
+@media (max-width: 768px) {
+    .img-3d-1 {
+        width: 30vw;
+    }
+}
+
+@media (max-width: 576px) {
+    .img-3d-1 {
+        width: 30vw;
+        height: 50vh;
+    }
 }

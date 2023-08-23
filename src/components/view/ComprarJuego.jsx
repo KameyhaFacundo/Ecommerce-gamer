@@ -2,17 +2,18 @@ import React, { useEffect, useState } from "react";
 import "./ComprarJuego.css";
 import { Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { obtenerJuego } from "../helpers/queries";
+import { CrearjuegosStorage, listarJuegosStorage, obtenerJuego } from "../helpers/queries";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
-
-function ComprarJuego() {
+function ComprarJuego({usuarioActivo}) {
     const [juego, setJuego] = useState(""); 
     const [categoria, setCategoria] = useState(""); 
     const [procesador, setProcesador] = useState(""); 
     const [sistemaoperativo, setSistemaOperativo] = useState(""); 
     const [tarjetagrafica, setTarjetaGrafica] = useState(""); 
-    
+    const [juegostorage, setJuegoStorage] = useState([]);
+
     const { id } = useParams();
     useEffect(() => {
         obtenerJuego(id).then((resp) => {
@@ -26,10 +27,33 @@ function ComprarJuego() {
             setProcesador(procesadorId)
             setSistemaOperativo(sistemaOperativoId)
             setTarjetaGrafica(tarjetaGraficaId)
+            listarJuegosStorage().then((listaxd) => {
+              setJuegoStorage(listaxd)})
         })
+        
     }, []);
-
-
+    const añadirAlCarrito = () => {
+      var banderaJuegoStorage = false
+     
+      juegostorage.map((JuegoBuscado)=>{
+        if((JuegoBuscado.idJuego) === parseInt(id) && parseInt(JuegoBuscado.idUsuario) === parseInt(usuarioActivo.id))
+        {
+          banderaJuegoStorage = true
+        }
+        Swal.fire(
+          "Juego añadido a tu lista de deseos",
+        );
+      })
+      if(banderaJuegoStorage === false)
+      {
+        CrearjuegosStorage(id, usuarioActivo.id)
+      }
+      else{
+        Swal.fire(
+          "Ya posees este Juego en tu lista de deseos",
+        );
+        }
+    }
     return (
         <div className="body-detalle">
           <div className="card-juego row">
@@ -63,7 +87,7 @@ function ComprarJuego() {
               </section>
             
               <section className="d-flex justify-content-center mt-3 content-button">
-              <Button className="custom-button" variant="warning">
+              <Button className="custom-button" type="submit" variant="warning" onClick={añadirAlCarrito}>
                 <div className="button-content">
                   Añadir al carrito
                   <img
@@ -80,6 +104,6 @@ function ComprarJuego() {
         </div>
       );
     }
-    
+     
 
 export default ComprarJuego

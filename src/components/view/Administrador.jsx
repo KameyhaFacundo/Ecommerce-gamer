@@ -19,7 +19,6 @@ const Administrador = () => {
   useEffect(() => {
     listarJuegos()
       .then(listajuegos => {
-        console.log(listajuegos);
         setJuegos(listajuegos);
       })
       .catch(error => {

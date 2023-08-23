@@ -18,6 +18,9 @@ import { useState, useEffect } from "react";
 import { listarUsuarios } from "./components/helpers/queries";
 import EncapsularRutas from "./components/routes/EncapsularRutas";
 import RutasProtegidas from "./components/routes/RutasProtegidas";
+import EncapsularRutasMiCuenta from "./components/routes/EncapsularRutasMiCuenta";
+import RutasProtegidasMiCuenta from "./components/routes/RutasProtegidasMiCuenta";
+
 
 function App() {
   const UsuarioNoLogueado = {
@@ -28,9 +31,7 @@ function App() {
 
   const [usuarioActivo, setUsuarioActivo] = useState(usuarioOnline);
 
-useEffect(() => {
-  console.log(parseInt(sessionStorage.getItem("usuarioLogeado")))
-},[])
+
 
   return (
     <>
@@ -69,6 +70,14 @@ useEffect(() => {
               <EncapsularRutas>
                 <RutasProtegidas />
               </EncapsularRutas>
+            }
+          ></Route>
+           <Route
+            path="/micuenta/*"
+            element={
+              <EncapsularRutasMiCuenta>
+                < RutasProtegidasMiCuenta usuarioActivo={usuarioActivo} />
+              </EncapsularRutasMiCuenta>
             }
           ></Route>
 

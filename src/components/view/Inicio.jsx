@@ -70,6 +70,8 @@ function Inicio() {
       });
     });
 
+    console.log(juegosFiltrados)
+
     console.log("juegosFiltrados:", juegosFiltrados);
     if (parseInt(datos["categorias"]) === 0) {
       setJuegos(NuevaListaJuegos);

@@ -13,6 +13,7 @@ function ComprarJuego({usuarioActivo}) {
     const [sistemaoperativo, setSistemaOperativo] = useState(""); 
     const [tarjetagrafica, setTarjetaGrafica] = useState(""); 
     const [juegostorage, setJuegoStorage] = useState([]);
+    var banderaJuegoStorage = false
 
     const { id } = useParams();
     useEffect(() => {
@@ -32,21 +33,25 @@ function ComprarJuego({usuarioActivo}) {
         })
         
     }, []);
+
+
+
     const añadirAlCarrito = () => {
-      var banderaJuegoStorage = false
-     
       juegostorage.map((JuegoBuscado)=>{
-        if((JuegoBuscado.idJuego) === parseInt(id) && parseInt(JuegoBuscado.idUsuario) === parseInt(usuarioActivo.id))
+        if(parseInt(JuegoBuscado.idJuego) === parseInt(id) && parseInt(JuegoBuscado.idUsuario) === parseInt(usuarioActivo.id))
         {
           banderaJuegoStorage = true
         }
-        Swal.fire(
-          "Juego añadido a tu lista de deseos",
-        );
+        
       })
       if(banderaJuegoStorage === false)
       {
         CrearjuegosStorage(id, usuarioActivo.id)
+        Swal.fire(
+          "Juego añadido a tu lista de deseos",
+        );
+        listarJuegosStorage().then((listaxd) => {
+          setJuegoStorage(listaxd)})
       }
       else{
         Swal.fire(

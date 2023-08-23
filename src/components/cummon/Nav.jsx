@@ -21,7 +21,6 @@ const navagacion = useNavigate();
   useEffect(() => {
     listarUsuarios().then((usuario) => {
         setUsuarios(usuario);
-        console.log(usuario);
     });
   
 }, []);
@@ -29,12 +28,10 @@ const navagacion = useNavigate();
 useEffect(() => {
     usuarios.map((usuariobuscado) => {
         if (usuariobuscado.id === usuarioActivo) {
-            console.log(usuariobuscado.rol);
             setAdmin(usuariobuscado.rol);
         }
     });
-    console.log(usuarioActivo.rol)
-    console.log(usuarioActivo.id)
+   
 }, [usuarios]);
 
 
@@ -111,7 +108,8 @@ useEffect(() => {
         </Link>
       </Nav.Link>
       <NavDropdown title="Usuario" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Mi cuenta</NavDropdown.Item>
+        <NavDropdown.Item >            <Link to={"/micuenta"}>Mi cuenta</Link>
+</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.2">Carrito</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.3">Reseñas</NavDropdown.Item>
       </NavDropdown>
@@ -125,7 +123,8 @@ useEffect(() => {
   ) : (
     <>
       <NavDropdown title="Usuario" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Mi cuenta</NavDropdown.Item>
+
+            <Link to={"/micuenta"}>Mi cuenta</Link>
         <NavDropdown.Item href="#action/3.2">Carrito</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.3">Reseñas</NavDropdown.Item>
       </NavDropdown>

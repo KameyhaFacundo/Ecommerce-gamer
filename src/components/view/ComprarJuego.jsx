@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./ComprarJuego.css";
 import { Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { CrearjuegosStorage, listarJuegosStorage, obtenerJuego } from "../helpers/queries";
+import { CrearjuegosStorage, eliminarjuegosStorage, listarJuegosStorage, obtenerJuego } from "../helpers/queries";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
@@ -14,6 +14,8 @@ function ComprarJuego({usuarioActivo}) {
     const [tarjetagrafica, setTarjetaGrafica] = useState(""); 
     const [juegostorage, setJuegoStorage] = useState([]);
     var banderaJuegoStorage = false
+    var banderaJuegoStorage2 = false
+
 
     const { id } = useParams();
     useEffect(() => {
@@ -48,7 +50,7 @@ function ComprarJuego({usuarioActivo}) {
       {
         CrearjuegosStorage(id, usuarioActivo.id)
         Swal.fire(
-          "Juego añadido a tu lista de deseos",
+          "Juego Añadido a tu lista de deseos",
         );
         listarJuegosStorage().then((listaxd) => {
           setJuegoStorage(listaxd)})
@@ -58,6 +60,32 @@ function ComprarJuego({usuarioActivo}) {
           "Ya posees este Juego en tu lista de deseos",
         );
         }
+    }
+
+    const QuitarDelCarrito = () =>{
+var EliminarJuego = 0;
+      juegostorage.map((JuegoBuscado)=>{
+        if(parseInt(JuegoBuscado.idJuego) === parseInt(id) && parseInt(JuegoBuscado.idUsuario) === parseInt(usuarioActivo.id))
+        {
+          banderaJuegoStorage2 = true
+          EliminarJuego = JuegoBuscado.id;
+        }
+        
+      })
+      if(banderaJuegoStorage2 === true && EliminarJuego !== 0)
+      {
+        eliminarjuegosStorage(EliminarJuego)
+        Swal.fire(
+          "Juego Eliminado de tu lista de deseos",
+        );
+        listarJuegosStorage().then((listaxd) => {
+          setJuegoStorage(listaxd)})
+      }
+      else{
+        Swal.fire(
+          "No posees este Juego en tu lista de deseos",
+        );
+        }  
     }
     return (
         <div className="body-detalle">
@@ -91,10 +119,20 @@ function ComprarJuego({usuarioActivo}) {
               <span>Tarjeta Grafica: {tarjetagrafica}</span>
               </section>
             
-              <section className="d-flex justify-content-center mt-3 content-button">
-              <Button className="custom-button" type="submit" variant="warning" onClick={añadirAlCarrito}>
+              <section className="d-flex justify-content-center mt-3 content-button flex-column">
+              <Button className="mb-2 mt-4 custom-button" type="submit" variant="warning" onClick={añadirAlCarrito}>
                 <div className="button-content">
                   Añadir al carrito
+                  <img
+                    className="img-carrito"
+                    src="https://cdn.icon-icons.com/icons2/606/PNG/512/shopping-cart-add-button_icon-icons.com_56132.png"
+                    alt="carrito"
+                  />
+                </div>
+              </Button>
+              <Button className="custom-button" type="submit" variant="danger" onClick={QuitarDelCarrito}>
+                <div className="button-content">
+                  Quitar del Carrito
                   <img
                     className="img-carrito"
                     src="https://cdn.icon-icons.com/icons2/606/PNG/512/shopping-cart-add-button_icon-icons.com_56132.png"

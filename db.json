@@ -91,8 +91,8 @@
       ],
       "tarjetasGraficas": [
         {
-          "tarjetaGrafica": "AMD Radeon RX 6800 XT",
-          "id": 2
+          "tarjetaGrafica": "NVIDIA Quadro P2000",
+          "id": 5
         }
       ],
       "id": 1
@@ -226,14 +226,14 @@
       ],
       "sistemasOperativos": [
         {
-          "sistemaOperativo": "MAC OS",
-          "id": 2
+          "sistemaOperativo": "WINDOWS",
+          "id": 1
         }
       ],
       "tarjetasGraficas": [
         {
-          "tarjetaGrafica": "NVIDIA Quadro P2000",
-          "id": 5
+          "tarjetaGrafica": "AMD Radeon RX 570",
+          "id": 4
         }
       ],
       "id": 5
@@ -399,28 +399,75 @@
   ],
   "juegosStorage": [
     {
-      "idUsuario": 1,
       "idJuego": 1,
-      "id": 1
-    },
-    {
-      "idUsuario": 2,
-      "idJuego": 2,
-      "id": 2
-    },
-    {
-      "idJuego": 7,
-      "idUsuario": 2,
-      "id": 3
-    },
-    {
-      "idJuego": 6,
-      "idUsuario": 2,
+      "idUsuario": 1,
       "id": 4
     },
     {
       "idJuego": 3,
       "idUsuario": 1,
+      "id": 5
+    }
+  ],
+  "resenias": [
+    {
+      "id": 1,
+      "resenia": "Muy buen juego",
+      "idUsuario": 1,
+      "idJuego": 1,
+      "nombreUsuario": "Admin"
+    },
+    {
+      "id": 2,
+      "resenia": "Muy buen juego, muy bueno",
+      "idUsuario": 1,
+      "idJuego": 1,
+      "nombreUsuario": "Admin"
+    },
+    {
+      "id": 3,
+      "resenia": "Muy mal juego",
+      "idUsuario": 3,
+      "idJuego": 2,
+      "nombreUsuario": "Jose"
+    },
+    {
+      "resenia": "Terrible Pelicula, no me gusto nada",
+      "idJuego": 1,
+      "idUsuario": 1,
+      "nombreUsuario": "Admin",
+      "id": 4
+    }
+  ],
+  "puntuacion": [
+    {
+      "idJuego": 1,
+      "idUsuario": 0,
+      "puntuacionJuego": 3,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "puntuacionJuego": 1,
+      "idJuego": 1,
+      "idUsuario": 2
+    },
+    {
+      "idJuego": 1,
+      "idUsuario": 1,
+      "puntuacionJuego": 4,
+      "id": 3
+    },
+    {
+      "idJuego": 4,
+      "idUsuario": 1,
+      "puntuacionJuego": 5,
+      "id": 4
+    },
+    {
+      "idJuego": 2,
+      "idUsuario": 1,
+      "puntuacionJuego": 5,
       "id": 5
     }
   ]

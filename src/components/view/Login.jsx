@@ -27,7 +27,8 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
         }, 1000);
         var datosUsuario ={
           id: respuesta.id,
-          rol: respuesta.rol
+          rol: respuesta.rol,
+          nombreUsuario: respuesta.nombreUsuario
         }
         sessionStorage.setItem("usuarioLogeado", JSON.stringify(datosUsuario));
         console.log(respuesta.id);

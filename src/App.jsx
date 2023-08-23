@@ -57,7 +57,8 @@ function App() {
           <Route
             exact
             path="/detalle/:id"
-            element={<DetalleJuego></DetalleJuego>}
+            element={<DetalleJuego usuarioActivo={usuarioActivo}
+            ></DetalleJuego>}
           ></Route>
           <Route
             exact

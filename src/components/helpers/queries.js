@@ -5,8 +5,8 @@ const uriJuegosStorage = import.meta.env.VITE_API_JUEGOSSTORAGE;
 const uriSistemasOperativos = import.meta.env.VITE_API_SISTEMASOPERATIVOS;
 const uriTarjetasGraficas = import.meta.env.VITE_API_TAJETAGRAFICAS;
 const uriProcesadores = import.meta.env.VITE_API_PROCESADORES;
-
-
+const uriResenias = import.meta.env.VITE_API_RESENIAS;
+const uriPuntuacion = import.meta.env.VITE_API_PUNTUACION
 
 const fetchData = async (url) => {
     try {
@@ -44,6 +44,12 @@ const fetchData = async (url) => {
     return fetchData(uriUsuario);
   };
 
+  
+  export const listarPuntuacion = async () => {
+    return fetchData(uriPuntuacion);
+  };
+
+
   export const listarJuegosStorage = async () => {
     return fetchData(uriJuegosStorage);
   };
@@ -67,7 +73,9 @@ const fetchData = async (url) => {
   export const listarTarjetasGraficas = async () => {
     return fetchData(uriTarjetasGraficas);
   };
-
+  export const listarenias = async () => {
+    return fetchData(uriResenias);
+  };
 
   
 
@@ -75,6 +83,37 @@ const fetchData = async (url) => {
   export const crearJuego = async (juego) => {
     try {
       const resp = await fetch(uriJuegos, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(juego),
+      });
+
+     
+  
+      return resp;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  export const crearPuntuacion = async (Puntuacion) => {
+    try {
+      const resp = await fetch(uriPuntuacion, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(Puntuacion),
+      });
+  return resp;
+} catch (error) {
+  console.log(error);
+}
+};
+  export const crearResenias = async (juego) => {
+    try {
+      const resp = await fetch(uriResenias, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -130,9 +169,36 @@ const fetchData = async (url) => {
     }
   };
 
+  export const editarPuntuacion = async (id, puntuacionEditada) => {
+    try {
+      console.log(id, puntuacionEditada)
+      const resp = await fetch(`${uriPuntuacion}/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(puntuacionEditada),
+      });
+      return resp;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   export const eliminarJuego = async (id) => {
     try {
       const resp = await fetch(`${uriJuegos}/${id}`, {
+        method: 'DELETE',
+      });
+      return resp;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  export const eliminarjuegosStorage = async (id) => {
+    try {
+      const resp = await fetch(`${uriJuegosStorage}/${id}`, {
         method: 'DELETE',
       });
       return resp;

@@ -1,19 +1,67 @@
-import { Container, Card, Row, Col, Button, ListGroup } from "react-bootstrap";
+import {
+  Container,
+  Card,
+  Row,
+  Col,
+  Button,
+  ListGroup,
+  Form,
+} from "react-bootstrap";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
-import Form from "react-bootstrap/Form";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { obtenerJuego } from "../helpers/queries";
-import "./DetalleJuego.css"
+import { crearResenias, obtenerJuego } from "../helpers/queries";
+import "./DetalleJuego.css";
+import Resenia from "./Resenia.jsx";
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import StarRating from './StarRating';
 
-const DetalleJuego = () => {
+
+const DetalleJuego = ({ usuarioActivo }) => {
   const [juego, setJuego] = useState("");
   const [categoria, setCategoria] = useState("");
   const [procesador, setProcesador] = useState("");
   const [sistemaoperativo, setSistemaOperativo] = useState("");
   const [tarjetagrafica, setTarjetaGrafica] = useState("");
+  const handleRatingChange = (value) => {
+    console.log('Calificación seleccionada:', value);
+    // Puedes hacer lo que necesites con el valor de la calificación aquí
+  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
   const { id } = useParams();
+
+  const onSubmit = (datos) => {
+    datos["idJuego"] = parseInt(id) ;
+    datos["idUsuario"] = parseInt(usuarioActivo.id);
+    datos["nombreUsuario"] = usuarioActivo.nombreUsuario
+    console.log("hola" + usuarioActivo);
+    crearResenias(datos)
+      .then((respuesta) => {
+        
+        console.log(datos)
+        console.log("respuesta: " + respuesta.status);
+        if (respuesta.status === 201) {
+          Swal.fire(
+            "Comentario Publicado",
+            "Gracias por su brindarnos su opinion",
+            "success"
+          );
+          reset();
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire("Hubo un error", "Error al publicar el Comentario", "error");
+      });
+  };
+
   useEffect(() => {
     obtenerJuego(id).then((resp) => {
       const variable = resp;
@@ -28,6 +76,7 @@ const DetalleJuego = () => {
       setTarjetaGrafica(tarjetaGraficaId);
     });
   }, []);
+
   return (
     <>
       <Container className="my-3 mainSection bg-dark">
@@ -65,9 +114,11 @@ const DetalleJuego = () => {
                   <span className=" fw-semibold ">
                     <h3>Precio: ${juego.precio}</h3>
                   </span>
+                  
                   <br />
                 </div>
               </Card.Body>
+              
             </Col>
           </Row>
         </div>
@@ -89,38 +140,59 @@ const DetalleJuego = () => {
             <span className=" fw-semibold ">
               <h4> Tarjeta Grafica: {tarjetagrafica} G</h4>
             </span>
+            <h1>Sistema de Calificación</h1>
+      <StarRating onChange={handleRatingChange} usuarioActivo={usuarioActivo} idJuego={id}/>
           </div>
         </div>
+        
       </Container>
       <Container className="bg-dark">
-        <div className="Title mb-5"><h2>Reseñas de {juego.nombreJuego}</h2></div>
-      <div className="d-flex mb-4">
-          <div className="img-usuario"><img src="https://images.pexels.com/photos/3020919/pexels-photo-3020919.jpeg" alt="" /></div>
-          <div className="coment-user w-100">
-            <Form >
-              <Form.Group>
-                <textarea className="coment-user w-100" name="xd" id="1" cols="30" rows="10" placeholder="Escribe tu comentario..."></textarea>
-              </Form.Group>
-            </Form>
+        {usuarioActivo.id !== 0 ? (
+          <>
+            {" "}
+            <div className="Title mb-5">
+              <h2>Reseñas de {juego.nombreJuego}</h2>
             </div>
-        </div>
-        <div className="d-flex justify-content-end">
-        <Button className="mb-5">Publicar</Button>
-
-        </div>
-
-        <div className="d-flex mb-4">
-          <div className="img-usuario"><img src="https://images.pexels.com/photos/3020919/pexels-photo-3020919.jpeg" alt="" /></div>
-          <div className="coment">
-            <span>Texto</span>
+            <div className="d-flex mb-5">
+              <div className="img-usuario d-flex flex-column">
+                <img
+                  src="https://us.123rf.com/450wm/get4net/get4net1902/get4net190209043/125446708-usuario-anónimo-sin-rostro.jpg"
+                  alt=""
+                />
+                <p>{usuarioActivo.nombreUsuario}</p>
+              </div>
+              <div className="coment-user w-100">
+                <Form className="mb-5" onSubmit={handleSubmit(onSubmit)}>
+                  <Form.Group>
+                    <textarea
+                      className="form-control"
+                      placeholder="Ingrese un Comentario"
+                      {...register("resenia", {
+                        minLength: {
+                          value: 20,
+                          message: "Debe ingresar como minimo 20 caracteres",
+                        },
+                        maxLength: {
+                          value: 500,
+                          message: "Debe ingresar como maximo 500 caracteres",
+                        },
+                      })}
+                    />{" "}
+                  </Form.Group>
+                  <Button className="mb-5" type="submit">Publicar</Button>
+                </Form>
+              </div>
             </div>
-        </div>
-        <div className="d-flex">
-          <div className="img-usuario"><img src="https://images.pexels.com/photos/3020919/pexels-photo-3020919.jpeg" alt="" /></div>
-          <div className="coment">
-            <span>Texto</span>
-            </div>
-        </div>
+            <div className="d-flex justify-content-end"></div>
+            <Resenia juegoLog={id} ></Resenia>
+            
+            <div>
+   
+    </div>
+          </>
+        ) : (
+          <></>
+        )}
       </Container>
     </>
   );

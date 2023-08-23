@@ -37,7 +37,7 @@ function CardJuego({ juegos }) {
                     </Card.Title>
                   </div>
                   <Link className="w-100" to={"/ComprarJuego/" + juego.id}>
-                    <Button variant="danger" className="mb-3 w-100">
+                    <Button variant="danger" className="mb-1 w-100">
                       Comprar
                     </Button>
                   </Link>

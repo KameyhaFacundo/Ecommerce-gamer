@@ -12,6 +12,8 @@ import {
   listarTarjetasGraficas,
 } from "../helpers/queries";
 import "./Inicio.css"
+import Resenia from "./Resenia";
+
 function Inicio() {
   const [categorias, setCategorias] = useState([]);
   const [procesadores, setProcesadores] = useState([]);
@@ -107,6 +109,7 @@ function Inicio() {
         </FormGroup>
       </Form>
       <CardJuego juegos={juegos} /> {/* Pasar el array de juegos como prop */}
+      
     </div>
   );
 }

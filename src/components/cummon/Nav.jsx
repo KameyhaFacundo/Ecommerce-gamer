@@ -77,7 +77,7 @@ useEffect(() => {
       className="bg-body-tertiary sticky-top"
     >
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand >
           <Link to={"/"}>
             <Button variant="primary" type="submit">
               Inicio
@@ -100,54 +100,54 @@ useEffect(() => {
     </>
   ) : usuarioActivo.rol === true ? (
     <>
-      <Nav.Link href="#pricing">
+      <Nav >
         <Link to={"/administrador"}>
           <Button variant="primary" type="submit">
             Administrador
           </Button>
         </Link>
-      </Nav.Link>
+      </Nav>
       <NavDropdown title="Usuario" id="collasible-nav-dropdown">
         <NavDropdown.Item >            <Link to={"/micuenta"}>Mi cuenta</Link>
 </NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Carrito</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Reseñas</NavDropdown.Item>
+        <NavDropdown.Item >Carrito</NavDropdown.Item>
+        <NavDropdown.Item >Reseñas</NavDropdown.Item>
       </NavDropdown>
-      <Nav.Link  href="#memes">
+      <Nav  >
         <Link to={"/administrador"}>
         <Button variant="warning" onClick={()=>{cerrarSesion()}}>Logout</Button>
 
         </Link>
-      </Nav.Link>
+      </Nav>
     </>
   ) : (
     <>
       <NavDropdown title="Usuario" id="collasible-nav-dropdown">
 
             <Link to={"/micuenta"}>Mi cuenta</Link>
-        <NavDropdown.Item href="#action/3.2">Carrito</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Reseñas</NavDropdown.Item>
+        <NavDropdown.Item >Carrito</NavDropdown.Item>
+        <NavDropdown.Item >Reseñas</NavDropdown.Item>
       </NavDropdown>
-      <Nav.Link onClick={cerrarSesion} >
+      <Nav onClick={cerrarSesion} >
         <Link to={"/"} > 
 
                 <Button variant="warning" onClick={()=>{cerrarSesion()}}>Logout</Button>
             
         </Link>
-      </Nav.Link>
+      </Nav>
   
     </>
   )}
 </Nav>
           <Nav>
-            <Nav.Link href="#deets">
+            <Nav >
               {" "}
               <Link to={"/administrador"}>
                 <Button variant="primary" type="submit">
                   Acerca de Nosotros
                 </Button>
               </Link>
-            </Nav.Link>
+            </Nav>
             
           </Nav>
         </Navbar.Collapse>

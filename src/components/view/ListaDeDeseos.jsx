@@ -45,7 +45,6 @@ function ListaDeDeseos() {
 
   return (
     <div className='color-white'>
-      <Button>Hola</Button>
       <CardJuego juegos={juegosFiltrados} ></CardJuego>
     
     </div>

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { login } from "../helpers/queries";
+import "./Login.css"; // Importa tus estilos CSS personalizados aquí
 
 const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
   const {
@@ -42,40 +43,19 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
 
   return (
     <>
-      <Modal
+       <Modal
         show={showModal}
         size="lg"
         aria-labelledby="example-modal-sizes-title-lg"
         centered
       >
-        <Modal.Header
-          style={{
-            backgroundColor: "#2727",
-          }}
-        >
-          <div className="col-12 mt-5 mx-2 text-center">
-            <img
-              src="https://www.goeasytwitch.com/wp-content/uploads/2020/03/logov2.png"
-              alt="logo"
-            />
-          </div>
+        <Modal.Header className="modal-header">
+          {/* ... (tu código de encabezado) */}
         </Modal.Header>
-        <Modal.Body
-          style={{
-            backgroundColor: "#272727",
-            maxHeight: "100vh", // Establece la altura máxima en 100% del alto de la ventana
-            overflow: "hidden", // Oculta cualquier scroll vertical
-          }}
-        >
+        <Modal.Body className="modal-body">
           <Form
             onSubmit={handleSubmit(onSubmit)}
-            className="p-4 my-4"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              height: "100%", // Asegura que el formulario ocupe todo el espacio disponible
-            }}
+            className="login-form"
           >
             <Form.Group className="mb-3 text-white" controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
@@ -217,31 +197,10 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                 </li>
               </ul>
             </article>
-            <article className="d-flex justify-content-center">
-              <ul className="list-inline">
-                <li className="my-4">
-                  <Link>
-                    <img
-                      className="img-download"
-                      src="https://gaming-cdn.com/themes/igv2/modules/footer/images/apple.svg"
-                      alt="apple-download"
-                    />
-                  </Link>
-                </li>
-                <li className="my-4">
-                  <Link>
-                    <img
-                      className="img-download"
-                      src="https://gaming-cdn.com/themes/igv2/modules/footer/images/android.svg"
-                      alt="playstore-download"
-                    />
-                  </Link>
-                </li>
-              </ul>
-            </article>
+            
           </section>
-        </Modal.Body>
-        <Modal.Footer
+          </Modal.Body>
+        <Modal.Footer className="modal-footer"
           style={{
             backgroundColor: "#272727",
           }}

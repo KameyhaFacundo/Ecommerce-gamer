@@ -4,31 +4,10 @@
     
 }
 
-.img-3d-1{
-    display: block;
-    position: absolute;
-    margin: 0 auto;
-    z-index: 2;
-    bottom: 20vh;
-    left: 1vw;
-    height: 60vh;
-    width: 20vw;
-}
+
 
 body{
     min-height: 100vh;
     min-width: 100vw;
 }
 
-@media (max-width: 768px) {
-    .img-3d-1 {
-        width: 30vw;
-    }
-}
-
-@media (max-width: 576px) {
-    .img-3d-1 {
-        width: 30vw;
-        height: 50vh;
-    }
-}

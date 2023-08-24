@@ -16,8 +16,8 @@ function ComprarJuego({usuarioActivo}) {
     var banderaJuegoStorage = false
     var banderaJuegoStorage2 = false
 
-
     const { id } = useParams();
+    
     useEffect(() => {
         obtenerJuego(id).then((resp) => {
             const variable = resp
@@ -39,31 +39,41 @@ function ComprarJuego({usuarioActivo}) {
 
 
     const añadirAlCarrito = () => {
-      juegostorage.map((JuegoBuscado)=>{
-        if(parseInt(JuegoBuscado.idJuego) === parseInt(id) && parseInt(JuegoBuscado.idUsuario) === parseInt(usuarioActivo.id))
-        {
-          banderaJuegoStorage = true
-        }
-        
-      })
-      if(banderaJuegoStorage === false)
-      {
-        CrearjuegosStorage(id, usuarioActivo.id)
-        Swal.fire(
-          "Juego Añadido a tu lista de deseos",
-        );
-        listarJuegosStorage().then((listaxd) => {
-          setJuegoStorage(listaxd)})
-      }
-      else{
-        Swal.fire(
-          "Ya posees este Juego en tu lista de deseos",
-        );
-        }
+      if(usuarioActivo.id !== 0)
+{
+  juegostorage.map((JuegoBuscado)=>{
+    if(parseInt(JuegoBuscado.idJuego) === parseInt(id) && parseInt(JuegoBuscado.idUsuario) === parseInt(usuarioActivo.id))
+    {
+      banderaJuegoStorage = true
+    }
+    
+  })
+  if(banderaJuegoStorage === false)
+  {
+    CrearjuegosStorage(id, usuarioActivo.id)
+    Swal.fire(
+      "Juego Añadido a tu lista de deseos",
+    );
+    listarJuegosStorage().then((listaxd) => {
+      setJuegoStorage(listaxd)})
+  }
+  else{
+    Swal.fire(
+      "Ya posees este Juego en tu lista de deseos",
+    );
+    }
+}    
+else{
+  Swal.fire(
+    "Debes iniciar Sesion",
+  );
+} 
     }
 
     const QuitarDelCarrito = () =>{
-var EliminarJuego = 0;
+      console.log(usuarioActivo.id)
+      if(usuarioActivo.id !== 0){
+        var EliminarJuego = 0;
       juegostorage.map((JuegoBuscado)=>{
         if(parseInt(JuegoBuscado.idJuego) === parseInt(id) && parseInt(JuegoBuscado.idUsuario) === parseInt(usuarioActivo.id))
         {
@@ -86,6 +96,13 @@ var EliminarJuego = 0;
           "No posees este Juego en tu lista de deseos",
         );
         }  
+      }
+      else{
+        Swal.fire(
+          "Debes iniciar Sesion",
+        );
+      }
+
     }
     return (
         <div className="body-detalle">
@@ -99,7 +116,7 @@ var EliminarJuego = 0;
             <div className="info-card col-lg-6">
               <div className="d-flex titulo-precio"> 
               <section className="Titulo">
-                <h2>{juego.nombreJuego}</h2>
+                <h4>{juego.nombreJuego}</h4>
               </section>
               <section className="Precio">
                 <h3>${juego.precio}</h3>

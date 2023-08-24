@@ -1,3 +1,7 @@
+.body-detalles{
+    padding: 0 25% !important;
+}
+
 .img-usuario{
     align-items: center;
     display: flex;
@@ -29,3 +33,24 @@
 .coment-user{
     height: 100px;
 }
+
+.description-content{
+    overflow-y: scroll;
+    max-height: 50vh;
+}
+
+.imagen-content{
+    height: 50vh;
+
+}
+
+@media (max-width: 576px) {
+    .body-detalles{
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+

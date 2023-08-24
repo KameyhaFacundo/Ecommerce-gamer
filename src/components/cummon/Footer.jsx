@@ -6,8 +6,8 @@ function Footer() {
     <footer className="bg-dark text-light py-4 text-center container-fluid">
       <div className="d-flex row">
         <section className="col-12 col-lg-4 col-sm-12 mb-4">
-          <img
-            src="https://www.goeasytwitch.com/wp-content/uploads/2020/03/logov2.png"
+          <img className="w-50"
+            src="https://res.cloudinary.com/dol1ba0ld/image/upload/v1692860070/asd/image-removebg-preview_58_gqj88c.png"
             alt="logo"
           />
         </section>

@@ -407,6 +407,11 @@
       "idJuego": 3,
       "idUsuario": 1,
       "id": 5
+    },
+    {
+      "idJuego": 2,
+      "idUsuario": 1,
+      "id": 6
     }
   ],
   "resenias": [
@@ -430,22 +435,9 @@
       "idUsuario": 3,
       "idJuego": 2,
       "nombreUsuario": "Jose"
-    },
-    {
-      "resenia": "Terrible Pelicula, no me gusto nada",
-      "idJuego": 1,
-      "idUsuario": 1,
-      "nombreUsuario": "Admin",
-      "id": 4
     }
   ],
   "puntuacion": [
-    {
-      "idJuego": 1,
-      "idUsuario": 0,
-      "puntuacionJuego": 3,
-      "id": 1
-    },
     {
       "id": 2,
       "puntuacionJuego": 1,

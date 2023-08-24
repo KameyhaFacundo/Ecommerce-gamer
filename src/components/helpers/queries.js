@@ -73,7 +73,7 @@ const fetchData = async (url) => {
   export const listarTarjetasGraficas = async () => {
     return fetchData(uriTarjetasGraficas);
   };
-  export const listarenias = async () => {
+  export const listaresenias = async () => {
     return fetchData(uriResenias);
   };
 
@@ -206,6 +206,19 @@ const fetchData = async (url) => {
       console.log(error);
     }
   };
+
+
+  export const eliminarResenias = async (id) => {
+    try {
+      const resp = await fetch(`${uriResenias}/${id}`, {
+        method: 'DELETE',
+      });
+      return resp;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
 
   export const CrearjuegosStorage = async (id, usarioId) => {
     try {

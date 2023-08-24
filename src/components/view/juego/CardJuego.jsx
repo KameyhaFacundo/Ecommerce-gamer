@@ -21,7 +21,7 @@ function CardJuego({ juegos }) {
         {currentJuegos.length === 0 ? (
           <p className="result-none">No se encontraron resultados</p>
         ) : (
-          <div className="d-flex flex-wrap card-page-body">
+          <div className="d-flex flex-wrap justify-content-center card-page-body">
             {currentJuegos.map((juego) => (
               <Card
                 className="mx-3 Nav-link"
@@ -31,7 +31,7 @@ function CardJuego({ juegos }) {
                 <Card.Img className="h-100" variant="top" src={juego.imagen} />
                 <Card.Body className="card-body-size d-flex flex-column justify-content-center">
                   <div className="d-flex justify-content-between">
-                    <Card.Title>{juego.nombreJuego}</Card.Title>
+                    <Card.Text>{juego.nombreJuego}</Card.Text>
                     <Card.Title className="custom-card-size">
                       {"$" + juego.precio}
                     </Card.Title>

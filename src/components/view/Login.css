@@ -1,0 +1,43 @@
+/* Login.css */
+
+.modal-header {
+    background-color: #272727;
+    padding: 1rem 1rem 0.5rem;
+    border-bottom: none; /* Eliminar el borde inferior */
+  }
+  
+  .modal-body {
+    background-color: #272727;
+    max-height: 80vh; /* Reducir la altura máxima */
+    overflow-y: auto; /* Permitir el desplazamiento vertical si es necesario */
+    padding: 1rem;
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Espaciado entre elementos del formulario */
+  }
+  
+  .login-form label {
+    color: white;
+    margin-bottom: 0.5rem; /* Margen inferior más pequeño */
+  }
+  
+  
+  
+ 
+  
+  .login-form .text-danger {
+    color: #ff5400;
+    margin-top: 0.25rem; /* Margen superior más pequeño */
+  }
+  
+  .modal-footer {
+    background-color: #272727;
+    padding: 0.5rem 1rem; /* Espaciado interno */
+    border-top: none; /* Eliminar el borde superior */
+  }
+  
+  /* Resto de los estilos que quieras personalizar */
+  

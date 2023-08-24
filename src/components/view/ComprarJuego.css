@@ -29,7 +29,7 @@ box-shadow: -1px 19px 53px -17px rgba(255,255,255,1);
 .info-card {
   display: flex;
   flex-direction: column;
-  background-color: grey;
+  background-color: #272727;
   color: white;
   height: 70vh;
   padding: 2.5% 2.5%;
@@ -67,4 +67,15 @@ box-shadow: -1px 19px 53px -17px rgba(255,255,255,1);
 
 .content-button {
   height: 9%;
+}
+
+@media screen and (max-width: 768px) {
+  .card-juego {
+    width: 95%;
+    margin: 5vh auto;
+  }
+
+  .info-card {
+    padding: 15px;
+  }
 }

@@ -78,7 +78,17 @@ const Registro = () => {
    
     <div className="d-flex">
        
-    <div className='registration-form-container'>
+   
+<div>
+<div className="carrousel-container">
+      <div className="image-container">
+        <img
+          src="https://sm.ign.com/ign_es/screenshot/default/valorant-jett-red-1_64a2.jpg"
+          alt="img-registro"
+        />
+      </div>
+      <div className="overlay2">
+      <div className='registration-form-container mt-4'>
     <Form onSubmit={handleSubmit(onSubmit)}>
         
     <Form.Group className="mb-3" controlId="formnombreUsuario">
@@ -172,7 +182,7 @@ const Registro = () => {
               {errors.password?.message}
             </Form.Text>
           </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="warning" type="submit">
           Registrarse
         </Button>
         
@@ -180,19 +190,19 @@ const Registro = () => {
       <div className="social-login-buttons">
         <p>O inicia sesión con:</p>
         <div className='d-flex justify-content-center flex-wrap'>
-        <Button className="social-button gmail box-img d-flex justify-content-center" variant="outline-primary">
+        <Button className="social-button gmail box-img d-flex justify-content-center" variant="outline-light">
           <img src={gmailLogo} alt="Gmail" />
           Gmail
         </Button>
-        <Button className="social-button facebook box-img d-flex justify-content-center" variant="outline-primary">
+        <Button className="social-button facebook box-img d-flex justify-content-center" variant="outline-light">
           <img src={facebookLogo} alt="Facebook" />
           Facebook
         </Button>
-        <Button className="social-button instagram box-img d-flex justify-content-center" variant="outline-primary">
+        <Button className="social-button instagram box-img d-flex justify-content-center" variant="outline-light">
           <img src={instagramLogo} alt="Instagram" />
           Instagram
         </Button>
-        <Button className="social-button twitter box-img d-flex justify-content-center" variant="outline-primary">
+        <Button className="social-button twitter box-img d-flex justify-content-center" variant="outline-light">
           <img src={twitterLogo} alt="Twitter" />
           Twitter
         </Button>
@@ -200,10 +210,11 @@ const Registro = () => {
       
       </div>
     </div>
-    <div className='img-bg'>
-      <img className='img-luigi' src="https://res.cloudinary.com/dol1ba0ld/image/upload/v1692601369/image-removebg-preview_55_vy6twe.png" alt="" />
-      <img className='img-bg-luigi' src="https://img.freepik.com/vector-premium/viejo-videojuego-estilo-retro-fondo-vector-ilustracion_230920-1786.jpg" alt="" />
+      </div>
     </div>
+</div>
+
+   
     </div>
   );
 };

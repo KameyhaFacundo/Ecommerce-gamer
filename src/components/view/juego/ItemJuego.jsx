@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { eliminarJuego } from '../../helpers/queries';
 import Swal from "sweetalert2";
 import "./ItemJuego.css"
-function ItemJuego({id, nombreJuego, precio,imagen, fechaDeLanzamiento, categorias, memoriaRam, espacioDiscoDuro, procesadores, sistemasOperativos, tarjetasGraficas}) {
+function ItemJuego({handleEliminarClick, id, nombreJuego, precio,imagen, fechaDeLanzamiento, categorias, memoriaRam, espacioDiscoDuro, procesadores, sistemasOperativos, tarjetasGraficas}) {
   const [isDeleted, setIsDeleted] = useState(false);
 
   useEffect(() => {
@@ -14,43 +14,7 @@ function ItemJuego({id, nombreJuego, precio,imagen, fechaDeLanzamiento, categori
     }
   }, [isDeleted, id]);
 
-  const handleEliminarClick = () => {
-    Swal.fire({
-      title: `¿Estás seguro de que quieres eliminar el juego ${nombreJuego}?`,
-      text: 'Esta acción no se puede deshacer',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Eliminar',
-      cancelButtonText: 'Cancelar',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        eliminarJuego(id)
-          .then((resp) => {
-            if (resp.status === 200) {
-              setIsDeleted(true);
-              Swal.fire(
-                "Juego Eliminado",
-                "Su Juego fue eliminado correctamente",
-                "success"
-              );
-            }
-          })
-          .catch((error) => {
-            console.log(error);
-            Swal.fire(
-              "Hubo un error",
-              "Error al intentar eliminar el juego",
-              "error"
-            );
-          });
-      }
-    });
-  };
-
-  if (isDeleted) {
-    return null; // No se renderiza nada si el juego ha sido eliminado
-  }
-
+ 
   return (
     <tr>
       <td className='d-none d-md-table-cell'>{id}</td>
@@ -88,7 +52,7 @@ function ItemJuego({id, nombreJuego, precio,imagen, fechaDeLanzamiento, categori
               Editar
             </Button>
           </Link>
-          <Button variant="danger" onClick={handleEliminarClick} className="button-size mb-2">
+          <Button variant="danger" onClick={()=>{handleEliminarClick(id, nombreJuego)}} className="button-size mb-2">
             Eliminar
           </Button>
         </div>

@@ -1,9 +1,10 @@
 import { Table, Pagination, Button } from 'react-bootstrap';
 import "./Administrador.css"
 import { useState, useEffect } from "react";
-import { listarJuegos } from "../helpers/queries";
+import { eliminarJuego, listarJuegos } from "../helpers/queries";
 import ItemJuego from "./juego/ItemJuego";
 import { Link } from 'react-router-dom';
+import Swal from "sweetalert2";
 
 const Administrador = () => {
   const [juegos, setJuegos] = useState([]);
@@ -13,6 +14,48 @@ const Administrador = () => {
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+  const handleEliminarClick = (id, nombreJuego) => {
+    Swal.fire({
+      title: `¿Estás seguro de que quieres eliminar el juego ${nombreJuego}?`,
+      text: 'Esta acción no se puede deshacer',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Eliminar',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        eliminarJuego(id)
+          .then((resp) => {
+            if (resp.status === 200) {
+              Swal.fire(
+                "Juego Eliminado",
+                "Su Juego fue eliminado correctamente",
+                "success"
+              );
+            }
+            reload()
+          })
+          .catch((error) => {
+            console.log(error);
+            Swal.fire(
+              "Hubo un error",
+              "Error al intentar eliminar el juego",
+              "error"
+            );
+          });
+      }
+    });
+  };
+
+  const reload = () =>{
+    listarJuegos()
+      .then(listajuegos => {
+        setJuegos(listajuegos);
+      })
+      .catch(error => {
+        console.error("Error al obtener los juegos:", error);
+      });
+  }
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentJuegos = juegos.slice(startIndex, startIndex + itemsPerPage);
@@ -49,7 +92,7 @@ const Administrador = () => {
         </thead>
         <tbody>
           {currentJuegos.map((juego) => (
-            <ItemJuego key={juego.id} {...juego}></ItemJuego>
+            <ItemJuego key={juego.id} {...juego} handleEliminarClick={handleEliminarClick}></ItemJuego>
           ))}
         </tbody>
       </Table>

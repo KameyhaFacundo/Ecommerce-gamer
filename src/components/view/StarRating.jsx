@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { crearPuntuacion, editarPuntuacion, listarPuntuacion } from '../helpers/queries';
+import Swal from "sweetalert2";
 
 function StarRating({ onChange, usuarioActivo, idJuego }) {
   const [rating, setRating] = useState(0);
@@ -63,33 +64,42 @@ function StarRating({ onChange, usuarioActivo, idJuego }) {
   }, [ratingactual, idJuego, usuarioActivo]);
 
   const handleStarClick = (value) => {
-    const newData = {
-      idJuego: parseInt(idJuego),
-      idUsuario: usuarioActivo.id,
-      puntuacionJuego: value,
-    };
-
-    if (rating === 0) {
-      crearPuntuacion(newData);
-    } else {
-      editarPuntuacion(puntuacionactual.id, newData);
-      onChange(value);
+    if(usuarioActivo.id !== 0)
+    {
+      const newData = {
+        idJuego: parseInt(idJuego),
+        idUsuario: usuarioActivo.id,
+        puntuacionJuego: value,
+      };
+  
+      if (rating === 0) {
+        crearPuntuacion(newData);
+      } else {
+        editarPuntuacion(puntuacionactual.id, newData);
+        onChange(value);
+      }
+  
+      setRating(value);
+      const updatedRatings = ratingactual.map((ratingBuscado) =>
+        ratingBuscado.id === puntuacionactual.id ? { ...ratingBuscado, puntuacionJuego: value } : ratingBuscado
+      );
+      setRatingActual(updatedRatings);
     }
-
-    setRating(value);
-    const updatedRatings = ratingactual.map((ratingBuscado) =>
-      ratingBuscado.id === puntuacionactual.id ? { ...ratingBuscado, puntuacionJuego: value } : ratingBuscado
-    );
-    setRatingActual(updatedRatings);
+    else{
+      Swal.fire(
+        "Debes iniciar Sesion",
+      );
+    }
+    
   };
 
   return (
     <>
-      <div>
+      <div className='mb-5'>
         <p>Calificación: {rating}</p>
         <div>
           {[1, 2, 3, 4, 5].map((value) => (
-            <span
+            <span className='display-4'
               key={value}
               onClick={() => handleStarClick(value)}
               style={{
@@ -98,7 +108,8 @@ function StarRating({ onChange, usuarioActivo, idJuego }) {
                 fontSize: '24px',
               }}
             >
-              ★
+                            <p  className='d-inline display-4 '>★</p>
+
             </span>
           ))}
         </div>

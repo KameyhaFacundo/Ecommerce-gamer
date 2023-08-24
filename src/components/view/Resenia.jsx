@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { listarenias } from '../helpers/queries';
+import { listaresenias } from '../helpers/queries';
 
 function Resenia({ juegoLog }) {
   const [resenias, setResenias] = useState([]);
   const [reseniasFiltradas, setReseniasFiltradas] = useState([]);
 
   useEffect(() => {
-    listarenias().then((respuesta) => {
+    listaresenias().then((respuesta) => {
       setResenias(respuesta);
     });
   }, []);

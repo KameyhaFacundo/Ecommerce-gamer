@@ -81,7 +81,7 @@ function ItemNavbar({ setUsuarioActivo, usuarioActivo }) {
             <Nav className="me-auto buttons-nav">
               {usuarioActivo.id === 0 ? (
                 <>
-                 <Link to={"/administrador"}>
+                 <Link to={"/acerca-de-nosotros"}>
                   <Button variant="secondary" className="mx-1 buttonx" type="submit">
                     Acerca de Nosotros
                   </Button>
@@ -124,7 +124,7 @@ function ItemNavbar({ setUsuarioActivo, usuarioActivo }) {
                     </Link>
                  
                   <Nav>
-                  <Link to={"/administrador"}>
+                  <Link to={"/acerca-de-nosotros"}>
                   <Button className="mx-1 buttonx" variant="secondary" type="submit">
                     Acerca de Nosotros
                   </Button>
@@ -148,7 +148,7 @@ function ItemNavbar({ setUsuarioActivo, usuarioActivo }) {
                 
                    
                     
-                  <Link to={"/administrador"}>
+                  <Link to={"/acerca-de-nosotros"}>
                   <Button variant="secondary" className="mx-1 buttonx" type="submit">
                     Acerca de Nosotros
                   </Button>
@@ -172,16 +172,7 @@ function ItemNavbar({ setUsuarioActivo, usuarioActivo }) {
                 </>
               )}
             </Nav>
-            <Nav>
-              <Nav>
-                {" "}
-                {/* <Link to={"/administrador"}>
-                  <Button variant="primary" type="submit">
-                    Acerca de Nosotros
-                  </Button>
-                </Link> */}
-              </Nav>
-            </Nav>
+           
           </Navbar.Collapse>
         </Container>
       </Navbar>

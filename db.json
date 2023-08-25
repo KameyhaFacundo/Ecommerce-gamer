@@ -1,5 +1,5 @@
 {
-  "programadores": [
+  "programador": [
     {
       "nombreProgramador": "Ailan Alvaro",
       "edad": 30,
@@ -412,6 +412,11 @@
       "idJuego": 2,
       "idUsuario": 1,
       "id": 6
+    },
+    {
+      "idJuego": 4,
+      "idUsuario": 1,
+      "id": 7
     }
   ],
   "resenias": [
@@ -447,13 +452,13 @@
     {
       "idJuego": 1,
       "idUsuario": 1,
-      "puntuacionJuego": 4,
+      "puntuacionJuego": 1,
       "id": 3
     },
     {
       "idJuego": 4,
       "idUsuario": 1,
-      "puntuacionJuego": 5,
+      "puntuacionJuego": 1,
       "id": 4
     },
     {
@@ -461,6 +466,18 @@
       "idUsuario": 1,
       "puntuacionJuego": 5,
       "id": 5
+    },
+    {
+      "idJuego": 7,
+      "idUsuario": 1,
+      "puntuacionJuego": 4,
+      "id": 6
+    },
+    {
+      "idJuego": 6,
+      "idUsuario": 1,
+      "puntuacionJuego": 5,
+      "id": 7
     }
   ]
 }

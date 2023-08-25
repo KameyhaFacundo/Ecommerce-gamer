@@ -20,7 +20,8 @@ import EncapsularRutas from "./components/routes/EncapsularRutas";
 import RutasProtegidas from "./components/routes/RutasProtegidas";
 import EncapsularRutasMiCuenta from "./components/routes/EncapsularRutasMiCuenta";
 import RutasProtegidasMiCuenta from "./components/routes/RutasProtegidasMiCuenta";
-
+import EncapsularRutasRegistro from "./components/routes/EncapsularRutasRegistro";
+import RutasProtegidasRegistro from "./components/routes/RutasProtegidasRegistro";
 
 function App() {
   const UsuarioNoLogueado = {
@@ -42,7 +43,7 @@ function App() {
         ></Nav>
 
         <Routes>
-          <Route exact path="/" element={<Inicio></Inicio>}></Route>
+          <Route exact path="/" element={<Inicio usuarioActivo={usuarioActivo}></Inicio>}></Route>
           <Route
             exact
             path="/login"
@@ -53,7 +54,9 @@ function App() {
             path="/acerca-de-nosotros"
             element={<AcercaDeNostros></AcercaDeNostros>}
           ></Route>
-          <Route exact path="/registro" element={<Registro></Registro>}></Route>
+          <Route path="/registro/*" element={<EncapsularRutasRegistro>
+                <RutasProtegidasRegistro  />
+              </EncapsularRutasRegistro>}></Route>
           <Route
             exact
             path="/detalle/:id"
@@ -81,9 +84,12 @@ function App() {
               </EncapsularRutasMiCuenta>
             }
           ></Route>
+          
 
           <Route exact path="*" element={<Error404></Error404>}></Route>
         </Routes>
+
+
         <Footer></Footer>
       </BrowserRouter>
     </>

@@ -16,7 +16,6 @@ const DetalleJuego = ({ usuarioActivo }) => {
 
   const handleRatingChange = (value) => {
     console.log("Calificación seleccionada:", value);
-    // You can do whatever you need with the rating value here
   };
 
   const {

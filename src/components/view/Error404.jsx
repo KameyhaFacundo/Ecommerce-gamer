@@ -17,7 +17,7 @@ const Error404 = () => {
             } else {
                 clearInterval(interval);
             }
-        }, 100); // Intervalo entre letras en milisegundos
+        }, 100);
 
         return () => clearInterval(interval);
     }, []);

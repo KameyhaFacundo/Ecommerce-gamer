@@ -11,8 +11,8 @@
   
   .text-overlay {
     position: absolute;
-    top: 30%; /* Ajusta esta propiedad para posicionar verticalmente el texto */
-    left: 80%; /* Ajusta esta propiedad para posicionar horizontalmente el texto */
+    top: 30%; 
+    left: 80%; 
     transform: translate(-50%, -50%);
    
     ;
@@ -29,9 +29,8 @@
   .retro-text {
     font-family: "Press Start 2P", cursive;
     font-size: 16px;
-    /* Otros estilos aquí */
+   
   }
-/* Definición de la animación de encendido */
 @keyframes turnOn {
     0%, 100% {
       background-color: rgb(255, 223, 0);
@@ -43,7 +42,6 @@
     }
   }
   
-  /* Definición de la animación de apagado */
   @keyframes turnOff {
     0%, 100% {
       background-color: rgb(255, 223, 0);
@@ -55,7 +53,6 @@
     }
   }
   
-  /* Estilos del botón */
   .magic-button {
     background-color: rgb(255, 223, 0);
     border-radius: 10px;
@@ -67,10 +64,8 @@
     font-family: "Press Start 2P", cursive;
     font-size: 20px;
 
-    /* Asegúrate de ajustar la duración y otros valores según tu preferencia */
   }
   
-  /* Al pasar el cursor por encima, cambiar a la animación de apagado */
   .magic-button:hover {
     animation: turnOff 2s infinite alternate;
   }
@@ -89,8 +84,8 @@
     .text-overlay
     {
         position: absolute;
-        top: 50%; /* Ajusta esta propiedad para posicionar verticalmente el texto */
-        left: 80%; /* Ajusta esta propiedad para posicionar horizontalmente el texto */
+        top: 50%; 
+        left: 80%; 
     }
   }
   

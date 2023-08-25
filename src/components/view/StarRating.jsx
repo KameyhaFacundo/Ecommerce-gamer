@@ -6,7 +6,7 @@ function StarRating({ onChange, usuarioActivo, idJuego }) {
   const [rating, setRating] = useState(0);
   const [ratingactual, setRatingActual] = useState([]);
   const [puntuacionactual, setPuntuacionActual] = useState({});
-  const [resultado, setResultado] = useState("Muy Malo"); // Valor por defecto
+  const [resultado, setResultado] = useState("Muy Malo"); 
   const [total, setTotal] = useState(0);
 
   useEffect(() => {

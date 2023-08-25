@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { login } from "../helpers/queries";
-import "./Login.css"; // Importa tus estilos CSS personalizados aquí
+import "./Login.css";  
 
 const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
   const {
@@ -29,12 +29,12 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
         var datosUsuario ={
           id: respuesta.id,
           rol: respuesta.rol,
-          nombreUsuario: respuesta.nombreUsuario
+          nombreUsuario: respuesta.nombreUsuario,
+          email: respuesta.email
         }
         sessionStorage.setItem("usuarioLogeado", JSON.stringify(datosUsuario));
         console.log(respuesta.id);
         setUsuarioActivo(datosUsuario);
-        // setUsuarioActivo(respuesta);
       } else {
         Swal.fire("Ocurrio un error", "Email o password incorrecto", "error");
       }
@@ -67,7 +67,6 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                   pattern: {
                     value: /^[\w\.-]+@[\w\.-]+\.\w+$/,
 
-                    // /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
                     message:
                       "El email debe cumplir con un formato valido como el siguiente mail@mail.com",
                   },

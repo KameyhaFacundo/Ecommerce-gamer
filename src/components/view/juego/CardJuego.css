@@ -1,4 +1,3 @@
-/* CardJuego.css */
 
 .custom-card-size {
     max-height: 250px;
@@ -45,16 +44,16 @@
   
   .result-none {
     margin-bottom: 100px;
-    margin: 0vw;
     min-height: 400px;
     margin-left: 2.5vw;
   }
   
   .card-page-body {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Adjust column width */
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); 
+    
     gap: 20px;
-    max-width: 1600px; /* Add max-width to keep it within 1600px */
-    margin: 0 auto; /* Center the grid within the container */
+    max-width: 1600px; 
+    margin: 0 auto; 
   }
   

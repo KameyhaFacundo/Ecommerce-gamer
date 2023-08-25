@@ -9,7 +9,6 @@ function ItemJuego({handleEliminarClick, id, nombreJuego, precio,imagen, fechaDe
 
   useEffect(() => {
     if (isDeleted) {
-      // Aquí podrías realizar cualquier acción necesaria después de la eliminación.
       console.log(`El juego con ID ${id} ha sido eliminado.`);
     }
   }, [isDeleted, id]);
@@ -27,24 +26,7 @@ function ItemJuego({handleEliminarClick, id, nombreJuego, precio,imagen, fechaDe
           <span key={cat.id}>{cat.categoria}, </span>
         ))}
       </td>
-      {/* <td>{fechaDeLanzamiento}</td>
-      <td>
-        <div>Memoria Ram: {memoriaRam}</div>
-        <div>Disco en Duro: {espacioDiscoDuro}</div>
-        <div>{procesadores.map((pr) => (
-          <span key={pr.id}>{pr.procesador}, </span>
-        ))} </div>
-        <div>
-        {sistemasOperativos.map((so) => (
-          <span key={so.id}>{so.sistemaOperativo}, </span>
-        ))}
-        </div>
-        <div>
-        {tarjetasGraficas.map((tg) => (
-          <span key={tg.id}>{tg.tarjetaGrafica}, </span>
-        ))}
-        </div>
-      </td> */}
+      
       <td>
         <div className="d-flex flex-column content-button movile-adapt button-size">
           <Link className='Button w-50 mb-2 button-size' to={"editar/"+id}>

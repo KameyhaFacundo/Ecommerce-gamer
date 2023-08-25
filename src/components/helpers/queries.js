@@ -6,7 +6,9 @@ const uriSistemasOperativos = import.meta.env.VITE_API_SISTEMASOPERATIVOS;
 const uriTarjetasGraficas = import.meta.env.VITE_API_TAJETAGRAFICAS;
 const uriProcesadores = import.meta.env.VITE_API_PROCESADORES;
 const uriResenias = import.meta.env.VITE_API_RESENIAS;
-const uriPuntuacion = import.meta.env.VITE_API_PUNTUACION
+const uriPuntuacion = import.meta.env.VITE_API_PUNTUACION;
+const uriProgramador =import.meta.env.VITE_API_PROGRAMADOR;
+
 
 const fetchData = async (url) => {
     try {
@@ -75,6 +77,10 @@ const fetchData = async (url) => {
   };
   export const listaresenias = async () => {
     return fetchData(uriResenias);
+  };
+
+  export const listarProgramador = async () => {
+    return fetchData(uriProgramador);
   };
 
   

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import './Registro.css'; // Importa el archivo CSS para los estilos
+import './Registro.css'; 
 import { crearUsuario, listarUsuarios } from '../helpers/queries';
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
@@ -55,34 +55,20 @@ const Registro = () => {
   });
    reset()
       
-    // var bandera = false;
-    // {usuarios.map((usuario) => {
-    //   if(datos["email"] === usuario.email)
-    //   {
-    //     bandera=true
-    //   }     
-    // })}
-    // if(bandera===false){
-    //   crearUsuario(datos) 
-    // }
-    // else{
-    //   bandera=true
-    //   console.log("Usuario ya existe")
-      
-    // }
+  
      
 
   };
 
   return (
    
-    <div className="d-flex">
+    <div className="d-flex conteiner-register" >
        
    
 <div>
 <div className="carrousel-container">
       <div className="image-container">
-        <img
+        <img className='h-100'
           src="https://sm.ign.com/ign_es/screenshot/default/valorant-jett-red-1_64a2.jpg"
           alt="img-registro"
         />

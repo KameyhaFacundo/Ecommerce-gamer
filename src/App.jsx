@@ -1,27 +1,23 @@
 import "./App.css";
 import Footer from "./components/cummon/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Administrador from "./components/view/Administrador";
 import Inicio from "./components/view/Inicio";
 import Login from "./components/view/Login";
 import AcercaDeNostros from "./components/view/AcercaDeNostros";
-import Registro from "./components/view/Registro";
 import DetalleJuego from "./components/view/DetalleJuego";
-import CrearJuego from "./components/view/juego/CrearJuego";
-import EditarJuego from "./components/view/juego/EditarJuego";
-import EliminarJuego from "./components/view/juego/EliminarJuego";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Error404 from "./components/view/Error404";
 import ComprarJuego from "./components/view/ComprarJuego";
 import Nav from "./components/cummon/Nav";
 import { useState, useEffect } from "react";
-import { listarUsuarios } from "./components/helpers/queries";
 import EncapsularRutas from "./components/routes/EncapsularRutas";
 import RutasProtegidas from "./components/routes/RutasProtegidas";
 import EncapsularRutasMiCuenta from "./components/routes/EncapsularRutasMiCuenta";
 import RutasProtegidasMiCuenta from "./components/routes/RutasProtegidasMiCuenta";
 import EncapsularRutasRegistro from "./components/routes/EncapsularRutasRegistro";
 import RutasProtegidasRegistro from "./components/routes/RutasProtegidasRegistro";
+import ScrollToTop from "./ScrollToTop";
 
 function App() {
   const UsuarioNoLogueado = {
@@ -37,11 +33,11 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Nav
+      <ScrollToTop/>
+      <Nav
           setUsuarioActivo={setUsuarioActivo}
           usuarioActivo={usuarioActivo}
         ></Nav>
-
         <Routes>
           <Route exact path="/" element={<Inicio usuarioActivo={usuarioActivo}></Inicio>}></Route>
           <Route
@@ -89,9 +85,10 @@ function App() {
           <Route exact path="*" element={<Error404></Error404>}></Route>
         </Routes>
 
-
         <Footer></Footer>
+
       </BrowserRouter>
+      
     </>
   );
 }

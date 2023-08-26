@@ -28,7 +28,9 @@ function CardJuego({ juegos }) {
                 key={juego.id}
                 style={{ width: "18rem" }}
               >
-                <Card.Img className="h-100" variant="top" src={juego.imagen} />
+                <Card.Img className="h-100" variant="top" src={juego.imagen}  onError={(e) => {
+                  e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                }} />
                 <Card.Body className="card-body-size d-flex flex-column justify-content-center">
                   <div className="d-flex justify-content-between">
                     <Card.Text>{juego.nombreJuego}</Card.Text>

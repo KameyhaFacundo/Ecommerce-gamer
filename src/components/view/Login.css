@@ -39,4 +39,12 @@
     border-top: none; 
   }
   
-  
+  .text-login{
+    font-size: 17px;
+    width: 100%;
+  }
+  .content-text-login{
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+  }

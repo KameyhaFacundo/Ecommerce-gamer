@@ -14,7 +14,10 @@ function CardProgramador() {
       {programadores.map((programador) => (
         <div>
             <div className="card-body-programador">
-         <img className="imagen-programador" src={programador.imagen} alt={programador.nombreProgramador} />
+         <img className="imagen-programador" src={programador.imagen} alt={programador.nombreProgramador} 
+         onError={(e) => {
+          e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+        }}/>
          <div className="content-programador">
            <h3 className="name-programador" >{programador.nombreProgramador}</h3>
            <p className="age-programador" >{programador.edad} Años</p>

@@ -1,11 +1,9 @@
 import { Table, Pagination, Button } from 'react-bootstrap';
-import "./Administrador.css"
 import { useState, useEffect } from "react";
 import { eliminarJuego, listarJuegos } from "../helpers/queries";
 import ItemJuego from "./juego/ItemJuego";
 import { Link } from 'react-router-dom';
 import Swal from "sweetalert2";
-
 const Administrador = () => {
   const [juegos, setJuegos] = useState([]);
   const itemsPerPage = 5;
@@ -70,14 +68,14 @@ const Administrador = () => {
   }, []);
 
   return (
-    <section className="container mainSection">
+    <section className="container mainSection conteniner-administrador">
       <div className="d-flex justify-content-between align-items-center mt-5">
         <h1 className="display-4 " >Juegos disponibles</h1>
         <Link to={"crear"}> <Button variant='success' >Agregar Juego</Button></Link>
        
       </div>
       <hr />
-      <Table responsive striped bordered hover>
+      <Table responsive striped bordered hover className='w-100'>
         <thead>
           <tr>
             <th className='d-none d-md-table-cell'>Codigo</th>

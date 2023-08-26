@@ -14,6 +14,10 @@ function CardTopJuegos({ juegos }) {
             className="h-100 Card-img-body"
             variant="top"
             src={juego.imagen}
+            onError={(e) => {
+              e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+            }}
+            alt="Card-img"
           />
           <Card.Body className="card-body-size-2 d-flex flex-column justify-content-center">
             <div className="d-flex justify-content-center conteiner-text">

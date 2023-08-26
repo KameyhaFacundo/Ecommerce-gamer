@@ -72,7 +72,7 @@
 }
 
 .image-container img {
-  min-height: 600px;
+  min-height: 700px;
 }
   .overlay2 {
     position: absolute;
@@ -87,7 +87,7 @@
   @media (max-width: 1200px) {
     .registration-form-container{
       width: 100vw;
-      min-height: 500px;
+      min-height: 600px;
     }
   }
   @media (max-width: 512px) {
@@ -99,4 +99,27 @@
         width: 100%;
     }
    
+  }
+
+  @media (max-width: 512px) {
+    .img-bg{
+        display: none;
+    }
+
+    .registration-form-container{
+        width: 100%;
+    }
+   
+  }
+
+  @media (max-width: 280px) {
+    .social-login-buttons{
+      min-width: 100%;
+    }
+  .social-button{
+    margin-left: 0 !important;
+    margin: 0 !important;
+  }
+  .social-button img{
+  }
   }

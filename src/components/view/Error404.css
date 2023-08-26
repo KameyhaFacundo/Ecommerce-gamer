@@ -88,5 +88,27 @@
         left: 80%; 
     }
   }
+  @media (max-width: 1200px) {
+    .text-overlay{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      top: 5%;
+    }
+    .text-overlay p{
+      width: 30vw;
+      height: initial;
+    }
   
+  }
+  @media (max-width: 1200px) {
+    .text-overlay{
+      width: 100%;
+      left: 50%;
+    }
+    .text-overlay p {
+      font-size: 30px;
+    }
+  }
+
   

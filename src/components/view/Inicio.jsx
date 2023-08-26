@@ -138,6 +138,9 @@ function Inicio({ usuarioActivo }) {
               className="w-100 h-75"
               src="https://images.wikidexcdn.net/mwuploads/esssbwiki/thumb/b/b3/latest/20180612205232/Cloud_SSBU.png/1200px-Cloud_SSBU.png"
               alt="fondo-img"
+              onError={(e) => {
+                e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+              }}
             />
           </div>
           <div className="w-50 d-flex flex-wrap content-cards-top">

@@ -6,6 +6,7 @@ import Resenia from "./Resenia.jsx";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import StarRating from "./StarRating";
+import { Button } from "react-bootstrap";
 
 const DetalleJuego = ({ usuarioActivo }) => {
   const [juego, setJuego] = useState("");
@@ -73,14 +74,17 @@ const DetalleJuego = ({ usuarioActivo }) => {
       <div className="my-3 bg-dark body-detalles">
         <div className="bg-dark">
           <div className="row">
-            <div className="col-xl-6 imagen-content">
+            <div className="col-xl-6 imagen-content mb-5">
               <img
                 className="mt-5 imagen-content"
                 src={juego.imagen}
-                alt="Descripción imagen"
+                alt="Img-game"
+                onError={(e) => {
+                  e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                }}
               />
             </div>
-            <div className="col-xl-6">
+            <div className="col-xl-6 mt-5">
               <div className="card-body">
                 <div className="text-light mt-4">
                   <h1>{juego.nombreJuego}</h1>
@@ -152,17 +156,20 @@ const DetalleJuego = ({ usuarioActivo }) => {
             <div className="Title mb-5">
               <h2>Reseñas de {juego.nombreJuego}</h2>
             </div>
-            <div className="d-flex mb-5">
-              <div className="img-usuario d-flex flex-column">
-                <img
+            <div className="d-flex mb-5 content-coment">
+              <div className="d-flex flex-column align-items-center">
+                <img className="img-usuario "
                   src="https://us.123rf.com/450wm/get4net/get4net1902/get4net190209043/125446708-usuario-anónimo-sin-rostro.jpg"
-                  alt=""
+                  alt="img-usuario"
+                  onError={(e) => {
+                    e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                  }}
                 />
                 <p>{usuarioActivo.nombreUsuario}</p>
               </div>
               <div className="coment-user w-100">
                 <form className="mb-5" onSubmit={handleSubmit(onSubmit)}>
-                  <div className="form-group">
+                  <div className="form-group coment">
                     <textarea
                       className="form-control"
                       placeholder="Ingrese un Comentario"
@@ -178,9 +185,9 @@ const DetalleJuego = ({ usuarioActivo }) => {
                       })}
                     />
                   </div>
-                  <button className="mb-5" type="submit">
+                  <Button className="mb-5" type="submit" variant="success">
                     Publicar
-                  </button>
+                  </Button>
                 </form>
               </div>
             </div>

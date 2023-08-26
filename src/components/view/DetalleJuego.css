@@ -1,28 +1,41 @@
 .body-detalles{
     padding: 0 25% !important;
 }
-
-.img-usuario{
-    align-items: center;
+.content-coment {
+    margin: 0 2%;
+  }
+.img-usuario {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    padding-bottom: 10%;
+  }
+.coment-user{
     display: flex;
-    height: auto;
-    width: 10%;
-    justify-content: center;
+    margin-left: 2%;
+    width: 100%;
+}
+.coment-user form{
+    width: 100%;
 }
 
-.img-usuario img{
-    width: 50%;
-    height: 60%;
-    border-radius: 100%;
-    margin: 0 1vw;
+.coment-user form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
 }
 
-.containes{
-    overflow: hidden;
+.coment-user form button{
+    width: 20%;
+    min-width: 100px;
+    
 }
+
 
 .coment{
-    width: 90%;
+    width: 100%;
     background-color: white;
     color: black;
 }
@@ -30,9 +43,7 @@
     width: 100%;
 }
 
-.coment-user{
-    height: 100px;
-}
+
 
 .description-content{
     overflow-y: scroll;

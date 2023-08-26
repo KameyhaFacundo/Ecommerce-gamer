@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import './Error404.css'
-import Footer from '../cummon/Footer'
+import { Link } from 'react-router-dom';
 
 
 const Error404 = () => {
@@ -23,6 +23,7 @@ const Error404 = () => {
     }, []);
 
     return (
+        <>
         <div className='image-container'>
             <img src="https://tecnoblog.net/wp-content/uploads/2016/06/mario_sad.jpg"
                 className='image' />
@@ -31,13 +32,13 @@ const Error404 = () => {
                     <img src="" alt="" />
                     {visibleText}</p>
                     <div>
-                    <button className='magic-button'>Volver al inicio</button>
+                    <button className='magic-button'><Link className='btn btn-primary' to={"/"}>Volver al inicio</Link></button>
                       
                     </div>
                 
             </div>
-           <Footer></Footer>
         </div>
+</>
     );
 };
 

@@ -111,6 +111,9 @@ else{
               <img
                 src={juego.imagen}
                 alt="imagen juego"
+                onError={(e) => {
+                  e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                }}
               />
             </div>
             <div className="info-card col-lg-6">
@@ -144,6 +147,9 @@ else{
                     className="img-carrito"
                     src="https://cdn.icon-icons.com/icons2/606/PNG/512/shopping-cart-add-button_icon-icons.com_56132.png"
                     alt="carrito"
+                    onError={(e) => {
+                      e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                    }}
                   />
                 </div>
               </Button>
@@ -154,6 +160,9 @@ else{
                     className="img-carrito"
                     src="https://cdn.icon-icons.com/icons2/606/PNG/512/shopping-cart-add-button_icon-icons.com_56132.png"
                     alt="carrito"
+                    onError={(e) => {
+                      e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                    }}
                   />
                 </div>
               </Button>

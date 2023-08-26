@@ -6,6 +6,7 @@
     gap: 16px;
     margin: 2% auto;
     max-width: 80vw;
+    background-color: rgba(0, 0, 0, 0.5);
   }
   .imagen-programador {
     width: 80px;
@@ -22,4 +23,14 @@
   .age-programador{
     margin: 0;
     color: #888;
+  }
+
+  @media (max-width: 576px) {
+    .name-programador{
+      font-size: 18px;
+    }
+    .imagen-programador {
+      width: 60px;
+    height: 60px;
+    }
   }

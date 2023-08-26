@@ -1,6 +1,5 @@
 import React from 'react'
 import CardProgramador from './programador/CardProgramador'
-
 function AcercaDeNostros() {
   return (
    <>

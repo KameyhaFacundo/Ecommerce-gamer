@@ -15,6 +15,8 @@ function ItemNavbar({ setUsuarioActivo, usuarioActivo }) {
   const [admin, setAdmin] = useState([]);
   const [Actualizar, setActualizar] = useState([]);
 
+
+
   const navagacion = useNavigate();
 
   useEffect(() => {
@@ -73,6 +75,9 @@ function ItemNavbar({ setUsuarioActivo, usuarioActivo }) {
                 className="img-local"
                 src="https://res.cloudinary.com/dol1ba0ld/image/upload/v1692860070/asd/image-removebg-preview_58_gqj88c.png"
                 alt="logo-inicio"
+                onError={(e) => {
+                  e.target.src = 'https://i.stack.imgur.com/lnYep.png'; // Ruta de la imagen alternativa
+                }}
               />
             </Link>
           </Navbar.Brand>
@@ -129,8 +134,8 @@ function ItemNavbar({ setUsuarioActivo, usuarioActivo }) {
                     Acerca de Nosotros
                   </Button>
                 </Link>
-                    <Link to={"/administrador"}>
-                    <Button className="mx-1 buttonx"
+                    <Link to={"/administrador"} className="mr-5">
+                    <Button className="mx-1 mr-5 buttonx"
                         variant="danger"
                         onClick={() => {
                           cerrarSesion();
@@ -158,8 +163,8 @@ function ItemNavbar({ setUsuarioActivo, usuarioActivo }) {
                     Mi Cuenta
                   </Button>
                 </Link>
-                <Link to={"/"}>
-                      <Button className=" mx-1 buttonx"
+                <Link to={"/"} className="mr-5">
+                      <Button className=" mx-1 mr-5 buttonx"
 
                         variant="danger"
                         onClick={() => {

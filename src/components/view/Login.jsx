@@ -115,20 +115,20 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
               </div>
             </Col>
           </Form>
-          <Row className="justify-content-center mb-5">
-            <Col xs="6" className="mt-2 text-center">
+          <Row className="justify-content-center mb-5 content-text-login">
+            <Col xs="6" className="mt-2 text-center text-login">
               <Link
                 to={"/registro"}
                 onClick={handleCloseModal}
-                className=" my-4 fs-4 text-white link-hover"
+                className=" my-4 text-white link-hover"
                 style={{ textDecoration: "none" }}
               >
                 ¿No tienes una cuenta?
               </Link>
             </Col>
-            <Col xs="6" className="mt-2 text-center">
+            <Col xs="6" className="mt-2 text-center text-login">
               <Link
-                className=" my-4 fs-4 text-white link-hover"
+                className=" my-4 text-white link-hover "
                 style={{ textDecoration: "none" }}
               >
                 ¿Has olvidado la contraseña?
@@ -143,6 +143,9 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-dcr.svg"
                       alt="discord-logo"
+                      onError={(e) => {
+                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                      }}
                     />
                   </Link>
                 </li>
@@ -151,6 +154,9 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-tw.svg"
                       alt="twitter-logo"
+                      onError={(e) => {
+                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                      }}
                     />
                   </Link>
                 </li>
@@ -159,6 +165,9 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-igr.svg"
                       alt="instagram-logo"
+                      onError={(e) => {
+                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                      }}
                     />
                   </Link>
                 </li>
@@ -167,6 +176,9 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-fb.svg"
                       alt="facebook-logo"
+                      onError={(e) => {
+                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                      }}
                     />
                   </Link>
                 </li>
@@ -175,6 +187,9 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-yt.svg"
                       alt="youtube-logo"
+                      onError={(e) => {
+                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                      }}
                     />
                   </Link>
                 </li>
@@ -183,6 +198,9 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-tch.svg"
                       alt="twitch-logo"
+                      onError={(e) => {
+                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                      }}
                     />
                   </Link>
                 </li>
@@ -191,6 +209,9 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/icon-extension.svg"
                       alt="googlestore-logo"
+                      onError={(e) => {
+                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                      }}
                     />
                   </Link>
                 </li>

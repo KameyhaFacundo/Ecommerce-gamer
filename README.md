@@ -1,6 +1,6 @@
 # eCommerce Gamer :joystick: :computer: :video_game:
 
-![Logo del Proyecto](https://res.cloudinary.com/dol1ba0ld/image/upload/v1692860070/asd/image-removebg-preview_58_gqj88c.png){width=300px align="center"}
+![Logo del Proyecto](https://res.cloudinary.com/dol1ba0ld/image/upload/v1692860070/asd/image-removebg-preview_58_gqj88c.png){width=300px}
 
 _Este proyecto es un eCommerce dedicado a la venta de juegos y productos relacionados con el mundo gamer. El sitio web permite a los usuarios registrados iniciar sesión y comprar productos, mientras que los administradores pueden gestionar el catálogo de juegos, realizar acciones de creación, edición y eliminación de productos._
 

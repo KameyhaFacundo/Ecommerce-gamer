@@ -1,6 +1,6 @@
 # eCommerce Gamer :joystick: :computer: :video_game:
 
-![Logo del Proyecto](https://www.goeasytwitch.com/wp-content/uploads/2020/03/logov2.png)
+![Logo del Proyecto](https://res.cloudinary.com/dol1ba0ld/image/upload/v1692860070/asd/image-removebg-preview_58_gqj88c.png)
 
 _Este proyecto es un eCommerce dedicado a la venta de juegos y productos relacionados con el mundo gamer. El sitio web permite a los usuarios registrados iniciar sesión y comprar productos, mientras que los administradores pueden gestionar el catálogo de juegos, realizar acciones de creación, edición y eliminación de productos._
 
@@ -42,10 +42,10 @@ git clone https://github.com/KameyhaFacundo/Ecommerce-gamer.git
 
 ## Autores del proyecto
 
-1. Kameyha Facundo
-2. Mauro Villagra
-3. Figueroa Lucas
-4. Luis Altamiranda
-5. Ailan Alvaro
+1. Kameyha Facundo ![Facundo](https://res.cloudinary.com/dol1ba0ld/image/upload/v1693022931/bd5a3847-58fc-4d72-8a3c-de90e2e2a9a5_e3shui.jpg)
+2. Mauro Villagra ![Mauro](https://res.cloudinary.com/dol1ba0ld/image/upload/v1693023204/WhatsApp_Image_2023-08-03_at_9.03.50_PM_uuqlcu.jpg)
+3. Figueroa Lucas ![Lucas](https://res.cloudinary.com/dol1ba0ld/image/upload/v1693022922/dbcfc40c-411c-40d3-9d73-06e23b0b7b78_yevqba.jpg)
+4. Luis Altamiranda ![Luis]()
+5. Alvaro Molina ![Alvaro]()
 
 Copyright (c) 2020 -2023

@@ -843,9 +843,9 @@
       "id": 6
     },
     {
-      "idJuego": 4,
+      "idJuego": 6,
       "idUsuario": 1,
-      "id": 7
+      "id": 8
     }
   ],
   "resenias": [
@@ -869,14 +869,28 @@
       "idUsuario": 3,
       "idJuego": 2,
       "nombreUsuario": "Jose"
+    },
+    {
+      "resenia": "Tomi es un boludo xd",
+      "idJuego": 6,
+      "idUsuario": 1,
+      "nombreUsuario": "Admin",
+      "id": 4
+    },
+    {
+      "resenia": "Tomi sigue siendo un boludo",
+      "idJuego": 6,
+      "idUsuario": 2,
+      "nombreUsuario": "Jose",
+      "id": 5
     }
   ],
   "puntuacion": [
     {
-      "id": 2,
-      "puntuacionJuego": 1,
       "idJuego": 1,
-      "idUsuario": 2
+      "idUsuario": 1,
+      "puntuacionJuego": 5,
+      "id": 2
     },
     {
       "idJuego": 1,
@@ -887,7 +901,7 @@
     {
       "idJuego": 4,
       "idUsuario": 1,
-      "puntuacionJuego": 1,
+      "puntuacionJuego": 5,
       "id": 4
     },
     {

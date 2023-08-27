@@ -22,6 +22,9 @@ function CarrouselInicio() {
         <img
           src="https://cdn1.epicgames.com/offer/cbd5b3d310a54b12bf3fe8c41994174f/EGS_VALORANT_RiotGames_S1_2560x1440-91dc9490f14942ad5eeef278eb3ef4a6"
           alt="img-inicio"
+          onError={(e) => {
+            e.target.src = "https://i.stack.imgur.com/lnYep.png"; // Ruta de la imagen alternativa
+          }}
         />
       </div>
       <div className="overlay"></div>

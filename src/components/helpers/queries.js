@@ -10,6 +10,7 @@ const uriPuntuacion = import.meta.env.VITE_API_PUNTUACION;
 const uriProgramador =import.meta.env.VITE_API_PROGRAMADOR;
 
 
+
 const fetchData = async (url) => {
     try {
       const respuesta = await fetch(url);

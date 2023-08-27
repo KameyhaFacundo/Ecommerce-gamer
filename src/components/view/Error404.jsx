@@ -4,6 +4,7 @@ import './Error404.css'
 import { Link } from 'react-router-dom';
 
 
+
 const Error404 = () => {
     const textToShow = "¡Game Over temporal!";
     const [visibleText, setVisibleText] = useState('');
@@ -19,11 +20,13 @@ const Error404 = () => {
             }
         }, 100);
 
+
         return () => clearInterval(interval);
     }, []);
 
     return (
         <>
+
         <div className='image-container'>
             <img src="https://tecnoblog.net/wp-content/uploads/2016/06/mario_sad.jpg"
                 className='image' />
@@ -33,6 +36,7 @@ const Error404 = () => {
                     {visibleText}</p>
                     <div>
                     <button className='magic-button'><Link className='btn btn-primary' to={"/"}>Volver al inicio</Link></button>
+
                       
                     </div>
                 
@@ -42,4 +46,4 @@ const Error404 = () => {
     );
 };
 
-export default Error404
+

@@ -6,6 +6,7 @@ import { login } from "../helpers/queries";
 import "./Login.css";  
 
 const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
+
   const {
     register,
     handleSubmit,
@@ -35,6 +36,7 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
         sessionStorage.setItem("usuarioLogeado", JSON.stringify(datosUsuario));
         console.log(respuesta.id);
         setUsuarioActivo(datosUsuario);
+
       } else {
         Swal.fire("Ocurrio un error", "Email o password incorrecto", "error");
       }
@@ -44,6 +46,7 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
   return (
     <>
        <Modal
+
         show={showModal}
         size="lg"
         aria-labelledby="example-modal-sizes-title-lg"
@@ -57,6 +60,7 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
             onSubmit={handleSubmit(onSubmit)}
             className="login-form"
           >
+
             <Form.Group className="mb-3 text-white" controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control
@@ -66,6 +70,7 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                   required: "El email es un dato obligatorio",
                   pattern: {
                     value: /^[\w\.-]+@[\w\.-]+\.\w+$/,
+
 
                     message:
                       "El email debe cumplir con un formato valido como el siguiente mail@mail.com",
@@ -90,6 +95,7 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                   pattern: {
                     value: /^[a-zA-Z0-9áéíóúñÁÉÍÓÚÑ]*$/,
                     //  /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/ ,
+
                     message:
                       "El password debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.",
                   },
@@ -121,6 +127,7 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                 to={"/registro"}
                 onClick={handleCloseModal}
                 className=" my-4 text-white link-hover"
+
                 style={{ textDecoration: "none" }}
               >
                 ¿No tienes una cuenta?
@@ -129,6 +136,7 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
             <Col xs="6" className="mt-2 text-center text-login">
               <Link
                 className=" my-4 text-white link-hover "
+
                 style={{ textDecoration: "none" }}
               >
                 ¿Has olvidado la contraseña?
@@ -146,6 +154,7 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                       onError={(e) => {
                         e.target.src = 'https://i.stack.imgur.com/lnYep.png';
                       }}
+
                     />
                   </Link>
                 </li>
@@ -157,6 +166,7 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                       onError={(e) => {
                         e.target.src = 'https://i.stack.imgur.com/lnYep.png';
                       }}
+
                     />
                   </Link>
                 </li>
@@ -168,6 +178,7 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                       onError={(e) => {
                         e.target.src = 'https://i.stack.imgur.com/lnYep.png';
                       }}
+
                     />
                   </Link>
                 </li>
@@ -179,6 +190,7 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                       onError={(e) => {
                         e.target.src = 'https://i.stack.imgur.com/lnYep.png';
                       }}
+
                     />
                   </Link>
                 </li>
@@ -190,6 +202,7 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                       onError={(e) => {
                         e.target.src = 'https://i.stack.imgur.com/lnYep.png';
                       }}
+
                     />
                   </Link>
                 </li>
@@ -201,6 +214,7 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                       onError={(e) => {
                         e.target.src = 'https://i.stack.imgur.com/lnYep.png';
                       }}
+
                     />
                   </Link>
                 </li>
@@ -209,9 +223,11 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/icon-extension.svg"
                       alt="googlestore-logo"
+
                       onError={(e) => {
                         e.target.src = 'https://i.stack.imgur.com/lnYep.png';
                       }}
+
                     />
                   </Link>
                 </li>
@@ -221,6 +237,7 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
           </section>
           </Modal.Body>
         <Modal.Footer className="modal-footer"
+
           style={{
             backgroundColor: "#272727",
           }}

@@ -202,3 +202,4 @@ const DetalleJuego = ({ usuarioActivo }) => {
 };
 
 export default DetalleJuego;
+

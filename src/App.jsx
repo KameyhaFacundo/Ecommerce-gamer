@@ -30,14 +30,17 @@ function App() {
 
 
 
+
   return (
     <>
+
       <BrowserRouter>
       <ScrollToTop/>
       <Nav
           setUsuarioActivo={setUsuarioActivo}
           usuarioActivo={usuarioActivo}
         ></Nav>
+
         <Routes>
           <Route exact path="/" element={<Inicio usuarioActivo={usuarioActivo}></Inicio>}></Route>
           <Route

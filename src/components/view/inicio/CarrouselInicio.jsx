@@ -9,7 +9,6 @@ function CarrouselInicio() {
   useEffect(() => {
     listarJuegos()
       .then((listajuegos) => {
-        console.log(listajuegos);
         setJuegos(listajuegos);
       })
       .catch((error) => {
@@ -18,37 +17,18 @@ function CarrouselInicio() {
   }, []);
 
   return (
-    <>
-      <div className="Inicio-img">
-        <div>
-          <span></span>
-        </div>
-        <div>
-          <img
-            className="img-3d-1"
-            src="https://mario.nintendo.com/static/d783068682f98d6cfec666c747a27793/d6e64/mario.png"
-            alt=""
-          />
-         
-        </div>
-        <div className="cuadrado-negro">
-            <img src="https://res.cloudinary.com/dol1ba0ld/image/upload/v1692506264/image_17_timefm.png" alt="" />
-          </div>
+    <div className="carrousel-container">
+      <div className="image-container">
+        <img
+          src="https://cdn1.epicgames.com/offer/cbd5b3d310a54b12bf3fe8c41994174f/EGS_VALORANT_RiotGames_S1_2560x1440-91dc9490f14942ad5eeef278eb3ef4a6"
+          alt="img-inicio"
+          onError={(e) => {
+            e.target.src = "https://i.stack.imgur.com/lnYep.png"; // Ruta de la imagen alternativa
+          }}
+        />
       </div>
-
-      {/* ``<Carousel showControls fade>
-      {juegos.map((juego) => (
-       <Carousel.Item key={juego.id}>
-       <img className="d-block w-100" src={juego.imagen} alt={juego.titulo} />
-       <Carousel.Caption>
-         <h3>{juego.titulo}</h3>
-         <p>{juego.descripcion}</p>
-       </Carousel.Caption>
-     </Carousel.Item>
-        
-      ))}
-    </Carousel> */}
-    </>
+      <div className="overlay"></div>
+    </div>
   );
 }
 

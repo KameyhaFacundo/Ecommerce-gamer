@@ -3,8 +3,10 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { login } from "../helpers/queries";
+import "./Login.css";  
 
-const Login = ({ showModal, handleCloseModal }) => {
+const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
+
   const {
     register,
     handleSubmit,
@@ -21,9 +23,20 @@ const Login = ({ showModal, handleCloseModal }) => {
           "Ingresaste a Tucu Gamer",
           "success"
         );
+        handleCloseModal();
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+        var datosUsuario ={
+          id: respuesta.id,
+          rol: respuesta.rol,
+          nombreUsuario: respuesta.nombreUsuario,
+          email: respuesta.email
+        }
+        sessionStorage.setItem("usuarioLogeado", JSON.stringify(datosUsuario));
+        console.log(respuesta.id);
+        setUsuarioActivo(datosUsuario);
 
-        sessionStorage.setItem("usuarioLogeado", JSON.stringify(respuesta));
-        // setUsuarioActivo(respuesta);
       } else {
         Swal.fire("Ocurrio un error", "Email o password incorrecto", "error");
       }
@@ -32,30 +45,22 @@ const Login = ({ showModal, handleCloseModal }) => {
 
   return (
     <>
-      <Modal
+       <Modal
+
         show={showModal}
         size="lg"
         aria-labelledby="example-modal-sizes-title-lg"
         centered
       >
-        <Modal.Header
-          style={{
-            backgroundColor: "#2727",
-          }}
-        >
-          <div className="col-12 mt-5 mx-2 text-center">
-            <img
-              src="https://www.goeasytwitch.com/wp-content/uploads/2020/03/logov2.png"
-              alt="logo"
-            />
-          </div>
+        <Modal.Header className="modal-header">
+          {/* ... (tu código de encabezado) */}
         </Modal.Header>
-        <Modal.Body
-          style={{
-            backgroundColor: "#272727",
-          }}
-        >
-          <Form onSubmit={handleSubmit(onSubmit)} className="p-4 my-4 ">
+        <Modal.Body className="modal-body">
+          <Form
+            onSubmit={handleSubmit(onSubmit)}
+            className="login-form"
+          >
+
             <Form.Group className="mb-3 text-white" controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control
@@ -64,8 +69,9 @@ const Login = ({ showModal, handleCloseModal }) => {
                 {...register("email", {
                   required: "El email es un dato obligatorio",
                   pattern: {
-                    value:
-                      /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+                    value: /^[\w\.-]+@[\w\.-]+\.\w+$/,
+
+
                     message:
                       "El email debe cumplir con un formato valido como el siguiente mail@mail.com",
                   },
@@ -87,7 +93,9 @@ const Login = ({ showModal, handleCloseModal }) => {
                 {...register("password", {
                   required: "El password es un dato obligatorio",
                   pattern: {
-                    value: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/,
+                    value: /^[a-zA-Z0-9áéíóúñÁÉÍÓÚÑ]*$/,
+                    //  /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/ ,
+
                     message:
                       "El password debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.",
                   },
@@ -113,18 +121,22 @@ const Login = ({ showModal, handleCloseModal }) => {
               </div>
             </Col>
           </Form>
-          <Row className="justify-content-center mb-5">
-            <Col xs="6" className="mt-2 text-center">
+          <Row className="justify-content-center mb-5 content-text-login">
+            <Col xs="6" className="mt-2 text-center text-login">
               <Link
-                className=" my-4 fs-4 text-white link-hover"
+                to={"/registro"}
+                onClick={handleCloseModal}
+                className=" my-4 text-white link-hover"
+
                 style={{ textDecoration: "none" }}
               >
                 ¿No tienes una cuenta?
               </Link>
             </Col>
-            <Col xs="6" className="mt-2 text-center">
+            <Col xs="6" className="mt-2 text-center text-login">
               <Link
-                className=" my-4 fs-4 text-white link-hover"
+                className=" my-4 text-white link-hover "
+
                 style={{ textDecoration: "none" }}
               >
                 ¿Has olvidado la contraseña?
@@ -139,6 +151,10 @@ const Login = ({ showModal, handleCloseModal }) => {
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-dcr.svg"
                       alt="discord-logo"
+                      onError={(e) => {
+                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                      }}
+
                     />
                   </Link>
                 </li>
@@ -147,6 +163,10 @@ const Login = ({ showModal, handleCloseModal }) => {
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-tw.svg"
                       alt="twitter-logo"
+                      onError={(e) => {
+                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                      }}
+
                     />
                   </Link>
                 </li>
@@ -155,6 +175,10 @@ const Login = ({ showModal, handleCloseModal }) => {
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-igr.svg"
                       alt="instagram-logo"
+                      onError={(e) => {
+                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                      }}
+
                     />
                   </Link>
                 </li>
@@ -163,6 +187,10 @@ const Login = ({ showModal, handleCloseModal }) => {
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-fb.svg"
                       alt="facebook-logo"
+                      onError={(e) => {
+                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                      }}
+
                     />
                   </Link>
                 </li>
@@ -171,6 +199,10 @@ const Login = ({ showModal, handleCloseModal }) => {
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-yt.svg"
                       alt="youtube-logo"
+                      onError={(e) => {
+                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                      }}
+
                     />
                   </Link>
                 </li>
@@ -179,6 +211,10 @@ const Login = ({ showModal, handleCloseModal }) => {
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-tch.svg"
                       alt="twitch-logo"
+                      onError={(e) => {
+                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                      }}
+
                     />
                   </Link>
                 </li>
@@ -187,36 +223,21 @@ const Login = ({ showModal, handleCloseModal }) => {
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/icon-extension.svg"
                       alt="googlestore-logo"
+
+                      onError={(e) => {
+                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                      }}
+
                     />
                   </Link>
                 </li>
               </ul>
             </article>
-            <article className="d-flex justify-content-center">
-              <ul className="list-inline">
-                <li className="my-4">
-                  <Link>
-                    <img
-                      className="img-download"
-                      src="https://gaming-cdn.com/themes/igv2/modules/footer/images/apple.svg"
-                      alt="apple-download"
-                    />
-                  </Link>
-                </li>
-                <li className="my-4">
-                  <Link>
-                    <img
-                      className="img-download"
-                      src="https://gaming-cdn.com/themes/igv2/modules/footer/images/android.svg"
-                      alt="playstore-download"
-                    />
-                  </Link>
-                </li>
-              </ul>
-            </article>
+            
           </section>
-        </Modal.Body>
-        <Modal.Footer
+          </Modal.Body>
+        <Modal.Footer className="modal-footer"
+
           style={{
             backgroundColor: "#272727",
           }}

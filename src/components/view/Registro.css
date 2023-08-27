@@ -51,27 +51,54 @@
 
   .img-bg {
     width: 50vw;
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
     float: left;
     box-sizing: border-box;
   }
 
-  .background {
+.conteiner-register
+{
+  min-height: 600px;
+}  
+.registration-form-container{
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 80%;
+}
+
+.image-container{
+
+ height: 100%;
+}
+
+.image-container img {
+  min-height: 700px;
+}
+  .overlay2 {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    background: linear-gradient(to right, rgba(0, 0, 0, 1),rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1));
+    z-index: 2;
   }
 
-  .img-luigi{
-    display: block;
-    position: absolute;
-    margin: 0 auto;
-    z-index: 2;
-    bottom: 0;
-    right: 3.5vw;
-    height: 90vh;
-    width: 50vw;
+  @media (max-width: 1200px) {
+    .registration-form-container{
+      width: 100vw;
+      min-height: 600px;
+    }
+  }
+  @media (max-width: 512px) {
+    .img-bg{
+        display: none;
+    }
+
+    .registration-form-container{
+        width: 100%;
+    }
+   
   }
 
   @media (max-width: 512px) {
@@ -80,7 +107,19 @@
     }
 
     .registration-form-container{
-        width: 100vw;
+        width: 100%;
     }
-    
+   
+  }
+
+  @media (max-width: 280px) {
+    .social-login-buttons{
+      min-width: 100%;
+    }
+  .social-button{
+    margin-left: 0 !important;
+    margin: 0 !important;
+  }
+  .social-button img{
+  }
   }

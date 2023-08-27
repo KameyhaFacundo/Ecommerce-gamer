@@ -185,8 +185,8 @@ function CrearJuego() {
                   message: "Debe ingresar como minimo 20 caracteres",
                 },
                 maxLength: {
-                  value: 5000,
-                  message: "Debe ingresar como maximo 5000 caracteres",
+                  value: 500,
+                  message: "Debe ingresar como maximo 500 caracteres",
                 },
               })}
             />

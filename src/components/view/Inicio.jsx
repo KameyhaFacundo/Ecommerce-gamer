@@ -2,23 +2,23 @@ import React from "react";
 import CardJuego from "./juego/CardJuego";
 import CarrouselInicio from "./inicio/CarrouselInicio";
 import { set, useForm } from "react-hook-form";
-import { Form, FormGroup } from "react-bootstrap";
+import { Button, Form, FormGroup } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import {
   listarJuegos,
   listarCategorias,
-  listarProcesadores,
-  listarSistemasOperativos,
-  listarTarjetasGraficas,
+  listarPuntuacion,
 } from "../helpers/queries";
-import "./Inicio.css"
-function Inicio() {
-  const [categorias, setCategorias] = useState([]);
-  const [procesadores, setProcesadores] = useState([]);
-  const [sistemasoperativos, setSistemasOperativos] = useState([]);
-  const [tarjetasgraficas, setTarjetasGraficas] = useState([]);
-  const [juegos, setJuegos] = useState([]);
+import "./Inicio.css";
+import CardTopJuegos from "./juego/CardTopJuegos";
+import CardAnuncioRegistro from "./anuncio/CardAnuncioRegistro";
 
+function Inicio({ usuarioActivo }) {
+  const [categorias, setCategorias] = useState([]);
+  const [juegos, setJuegos] = useState([]);
+  const [juegosfilter, setJuegosFilter] = useState([]);
+  const [puntuaciones, setPuntuaciones] = useState([]);
+  const [topjuegos, setTopJuegos] = useState([]);
   const {
     register,
     handleSubmit,
@@ -27,25 +27,21 @@ function Inicio() {
   } = useForm();
 
   useEffect(() => {
-    listarJuegos()
-    .then((resultado) => {
-      setJuegos(resultado)
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });    listarCategorias().then((listacategorias) => {
+    listarJuegos().then((resultado) => {
+      setJuegos(resultado);
+      setJuegosFilter(resultado);
+    });
+    listarCategorias().then((listacategorias) => {
       setCategorias(listacategorias);
     }),
-      listarProcesadores().then((listaprocesadores) => {
-        setProcesadores(listaprocesadores);
-      }),
-      listarSistemasOperativos().then((listasistemasoperativos) => {
-        setSistemasOperativos(listasistemasoperativos);
-      }),
-      listarTarjetasGraficas().then((listatarjetasgraficas) => {
-        setTarjetasGraficas(listatarjetasgraficas);
+      listarPuntuacion().then((respuesta) => {
+        setPuntuaciones(respuesta);
       });
   }, []);
+
+  useEffect(() => {
+    MostrarTop();
+  }, [juegos, puntuaciones]);
 
   const onSubmit = (datos) => {
     listarJuegos()
@@ -71,41 +67,97 @@ function Inicio() {
     });
 
     console.log("juegosFiltrados:", juegosFiltrados);
-    console.log(NuevaListaJuegos)
     if (parseInt(datos["categorias"]) === 0) {
-      setJuegos(NuevaListaJuegos);
+      setJuegosFilter(NuevaListaJuegos);
     } else {
-      setJuegos(juegosFiltrados);
+      setJuegosFilter(juegosFiltrados);
     }
   }
 
+  const MostrarTop = () => {
+    var datosCompilados = [];
+    juegos.map((juego) => {
+      var contador = 0;
+      var puntacionIndividual = 0;
+      puntuaciones.map((puntuacion) => {
+        if (puntuacion.idJuego === juego.id) {
+          puntacionIndividual += puntuacion.puntuacionJuego;
+          contador++;
+        }
+      });
+
+      if (puntacionIndividual > 0) {
+        const datos = {
+          idJuego: juego.id,
+          nombreJuego: juego.nombreJuego,
+          imagen: juego.imagen,
+          precio: juego.precio,
+          puntuacionJuego: (puntacionIndividual / contador).toFixed(2),
+        };
+        datosCompilados.push(datos);
+      }
+    });
+    datosCompilados.sort((a, b) => b.puntuacionJuego - a.puntuacionJuego);
+    console.log(datosCompilados);
+    setTopJuegos(datosCompilados);
+  };
+
   const handleChange = (e) => {
     const selectedCategoria = e.target.value;
-    onSubmit({ categorias: selectedCategoria }); // Llamamos a onSubmit con el valor seleccionado
-
-    // Hacer algo con el valor seleccionado si es necesario
+    onSubmit({ categorias: selectedCategoria });  
   };
 
   return (
-    <div>
+    <div className="body-search ">
       <CarrouselInicio></CarrouselInicio>
-      <Form>
-        <FormGroup>
-          <Form.Select
-            className="select-option-categoria"
-            {...register("categorias")}
-            onChange={handleChange}
-          >
-            <option value="0">Seleccione una opción</option>
-            {categorias.map((categoria) => (
-              <option key={categoria.id} value={categoria.id}>
-                {categoria.categoria}
-              </option>
-            ))}
-          </Form.Select>
-        </FormGroup>
-      </Form>
-      <CardJuego juegos={juegos} /> {/* Pasar el array de juegos como prop */}
+      <div className="bg-dark d-flex align-items-center mb-4">
+        <div className="text-filtrar">Filtrar</div>
+        <div> <Form>
+          <FormGroup>
+            <Form.Select
+              className="select-option-categoria"
+              {...register("categorias")}
+              onChange={handleChange}
+            >
+              <option value="0">Seleccione una opción</option>
+              {categorias.map((categoria) => (
+                <option key={categoria.id} value={categoria.id}>
+                  {categoria.categoria}
+                </option>
+              ))}
+            </Form.Select>
+          </FormGroup>
+        </Form></div>
+       
+      </div>
+      <CardJuego juegos={juegosfilter} />{" "}
+      <div className="justify-content-center d-flex top-conteiner">
+        <div className="d-flex bg-top">
+          <div className="w-50 content-img-top">
+            <img
+              className="w-100 h-75"
+              src="https://images.wikidexcdn.net/mwuploads/esssbwiki/thumb/b/b3/latest/20180612205232/Cloud_SSBU.png/1200px-Cloud_SSBU.png"
+              alt="fondo-img"
+              onError={(e) => {
+                e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+              }}
+            />
+          </div>
+          <div className="w-50 d-flex flex-wrap content-cards-top">
+            <div className="text-center w-100 mt-3 text-title-top">
+              <h3 className="mt-5">Juegos Mejor Calificados</h3>
+            </div>
+            <div className="w-100 h-75 d-flex flex-wrap justify-content-center card-top">
+              <CardTopJuegos juegos={topjuegos} />
+            </div>
+          </div>
+        </div>
+      </div>
+      {usuarioActivo.id === 0 && (
+        <div>
+          <CardAnuncioRegistro />
+        </div>
+      )}
     </div>
   );
 }

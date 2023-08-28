@@ -1,29 +1,42 @@
-import React from 'react'
-import CardProgramador from './programador/CardProgramador'
+import React from "react";
+import CardProgramador from "./programador/CardProgramador";
 function AcercaDeNostros() {
   return (
-   <>
-      <div>
-      <h1>Acerca De Nosotros</h1>
-      <p>Somos un equipo apasionado comprometido a brindar soluciones creativas y efectivas para nuestros clientes.</p>
-      <p>Nuestra misión es...</p>
-      <ul>
-        <li>Proporcionar productos y servicios de alta calidad que superen las expectativas de nuestros clientes.</li>
-        <li>Cultivar un ambiente de trabajo colaborativo y enriquecedor para nuestro talentoso equipo.</li>
-        <li>Contribuir positivamente a la comunidad a través de iniciativas y programas sociales.</li>
-      </ul>
-      <p>Valoramos...</p>
-      <ul>
-        <li>La innovación y la búsqueda constante de la excelencia.</li>
-        <li>La integridad en todas nuestras interacciones.</li>
-        <li>La diversidad y la inclusión como pilares de nuestra cultura.</li>
-        <li>El aprendizaje continuo y el desarrollo personal y profesional.</li>
-      </ul>
-      <p>¡Gracias por visitar nuestra página y ser parte de nuestro viaje!</p>
-    </div>
-    <CardProgramador></CardProgramador>
+    <>
+      <section className="text-center py-5 mx-5 px-5">
+        <h1 style={{ fontWeight: "bold", color: "dark" }}>
+          Acerca De Nosotros
+        </h1>
+        <div className="fs-4">
+          <p>
+            Somos un equipo apasionado comprometido a brindar soluciones
+            creativas y efectivas para nuestros clientes.
+          </p>
+          <p>
+            Somos más que una simple tienda en línea; somos un destino creado
+            por y para apasionados gamers de todas partes.
+          </p>
+          <p>
+            Nuestra misión es proporcionarte una experiencia de compra única y
+            emocionante, donde puedas encontrar todo lo que necesitas para
+            llevar tus aventuras virtuales al siguiente nivel.
+          </p>
+          <p>
+            Cada producto que presentamos en nuestra plataforma ha sido
+            cuidadosamente seleccionado para garantizar calidad, innovación y
+            autenticidad. Desde equipos de alta gama hasta accesorios
+            ingeniosos, nuestro catálogo está diseñado para satisfacer las
+            necesidades de jugadores casuales y competitivos por igual.
+          </p>
+
+          <p>
+            ¡Gracias por visitar nuestra página y ser parte de nuestro viaje!
+          </p>
+        </div>
+      </section>
+      <CardProgramador></CardProgramador>
     </>
-  )
+  );
 }
 
-export default AcercaDeNostros
+export default AcercaDeNostros;

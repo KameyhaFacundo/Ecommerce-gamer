@@ -3,13 +3,13 @@
     {
       "nombreProgramador": "Ailan Alvaro",
       "edad": 30,
-      "imagen": "https://images.pexels.com/photos/3020919/pexels-photo-3020919.jpeg",
+      "imagen": "https://res.cloudinary.com/dgzimgpia/image/upload/v1693144541/alvaro_jvaofl.jpg",
       "id": 1
     },
     {
       "nombreProgramador": "Altamiranda Luis",
       "edad": 30,
-      "imagen": "https://images.pexels.com/photos/3020919/pexels-photo-3020919.jpeg",
+      "imagen": "https://res.cloudinary.com/dgzimgpia/image/upload/v1693144580/luisaltamiranda_iqumho.jpg",
       "id": 2
     },
     {

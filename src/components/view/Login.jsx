@@ -102,7 +102,7 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
               <div className="d-grid gap-2">
                 <Button
                   style={{
-                    backgroundColor: "#ff5400",
+                    backgroundColor: "green",
                     border: 0,
                   }}
                   type="submit"
@@ -226,7 +226,7 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
           <Button
             onClick={handleCloseModal}
             style={{
-              backgroundColor: "#ff5400",
+              backgroundColor: "green",
               border: 0,
             }}
           >

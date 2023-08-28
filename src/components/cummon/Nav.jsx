@@ -15,8 +15,6 @@ function ItemNavbar({ setUsuarioActivo, usuarioActivo }) {
   const [admin, setAdmin] = useState([]);
   const [Actualizar, setActualizar] = useState([]);
 
-
-
   const navagacion = useNavigate();
 
   useEffect(() => {
@@ -76,7 +74,7 @@ function ItemNavbar({ setUsuarioActivo, usuarioActivo }) {
                 src="https://res.cloudinary.com/dol1ba0ld/image/upload/v1692860070/asd/image-removebg-preview_58_gqj88c.png"
                 alt="logo-inicio"
                 onError={(e) => {
-                  e.target.src = 'https://i.stack.imgur.com/lnYep.png'; // Ruta de la imagen alternativa
+                  e.target.src = "https://i.stack.imgur.com/lnYep.png"; // Ruta de la imagen alternativa
                 }}
               />
             </Link>
@@ -86,12 +84,17 @@ function ItemNavbar({ setUsuarioActivo, usuarioActivo }) {
             <Nav className="me-auto buttons-nav">
               {usuarioActivo.id === 0 ? (
                 <>
-                 <Link to={"/acerca-de-nosotros"}>
-                  <Button variant="secondary" className="mx-1 buttonx" type="submit">
-                    Acerca de Nosotros
-                  </Button>
-                </Link>
-                  <Button className="mx-1 buttonx"
+                  <Link to={"/acerca-de-nosotros"}>
+                    <Button
+                      variant="secondary"
+                      className="mx-1 buttonx"
+                      type="submit"
+                    >
+                      Acerca de Nosotros
+                    </Button>
+                  </Link>
+                  <Button
+                    className="mx-1 buttonx"
                     variant="success"
                     type="submit"
                     onClick={handleShowModal}
@@ -99,11 +102,15 @@ function ItemNavbar({ setUsuarioActivo, usuarioActivo }) {
                     Login
                   </Button>
                   <Link to={"/registro"}>
-                  <Button variant="success" className="mx-1 buttonx" type="submit">
-                    Registro
-                  </Button>
-                </Link>
-                  
+                    <Button
+                      variant="success"
+                      className="mx-1 buttonx"
+                      type="submit"
+                    >
+                      Registro
+                    </Button>
+                  </Link>
+
                   <Login
                     className="h-25"
                     showModal={showModal}
@@ -114,28 +121,34 @@ function ItemNavbar({ setUsuarioActivo, usuarioActivo }) {
                 <>
                   <Nav>
                     <Link to={"/administrador"}>
-                      <Button className="mx-1 buttonx" variant="secondary" type="submit">
+                      <Button
+                        className="mx-1 buttonx"
+                        variant="secondary"
+                        type="submit"
+                      >
                         Administrador
                       </Button>
                     </Link>
                   </Nav>
                   <Link to={"/micuenta"}>
-                      <Button className="buttonx mx-1"
+                    <Button className="buttonx mx-1" variant="secondary">
+                      Mi Cuenta
+                    </Button>
+                  </Link>
+
+                  <Nav>
+                    <Link to={"/acerca-de-nosotros"}>
+                      <Button
+                        className="mx-1 buttonx"
                         variant="secondary"
-                        
+                        type="submit"
                       >
-                        Mi Cuenta
+                        Acerca de Nosotros
                       </Button>
                     </Link>
-                 
-                  <Nav>
-                  <Link to={"/acerca-de-nosotros"}>
-                  <Button className="mx-1 buttonx" variant="secondary" type="submit">
-                    Acerca de Nosotros
-                  </Button>
-                </Link>
                     <Link to={"/administrador"} className="mr-5">
-                    <Button className="mx-1 mr-5 buttonx"
+                      <Button
+                        className="mx-1 mr-5 buttonx"
                         variant="danger"
                         onClick={() => {
                           cerrarSesion();
@@ -145,39 +158,41 @@ function ItemNavbar({ setUsuarioActivo, usuarioActivo }) {
                       </Button>
                     </Link>
                   </Nav>
-                  
                 </>
               ) : (
                 <>
-                 
-                
-                   
-                    
                   <Link to={"/acerca-de-nosotros"}>
-                  <Button variant="secondary" className="mx-1 buttonx" type="submit">
-                    Acerca de Nosotros
-                  </Button>
-                </Link>
-                <Link to={"/micuenta"}>
-                  <Button variant="secondary" className="mx-1 buttonx" type="submit">
-                    Mi Cuenta
-                  </Button>
-                </Link>
-                <Link to={"/"} className="mr-5">
-                      <Button className=" mx-1 mr-5 buttonx"
-
-                        variant="danger"
-                        onClick={() => {
-                          cerrarSesion();
-                        }}
-                      >
-                        Logout
-                      </Button>
-                    </Link>
+                    <Button
+                      variant="secondary"
+                      className="mx-1 buttonx"
+                      type="submit"
+                    >
+                      Acerca de Nosotros
+                    </Button>
+                  </Link>
+                  <Link to={"/micuenta"}>
+                    <Button
+                      variant="secondary"
+                      className="mx-1 buttonx"
+                      type="submit"
+                    >
+                      Mi Cuenta
+                    </Button>
+                  </Link>
+                  <Link to={"/"} className="mr-5">
+                    <Button
+                      className=" mx-1 mr-5 buttonx"
+                      variant="danger"
+                      onClick={() => {
+                        cerrarSesion();
+                      }}
+                    >
+                      Logout
+                    </Button>
+                  </Link>
                 </>
               )}
             </Nav>
-           
           </Navbar.Collapse>
         </Container>
       </Navbar>

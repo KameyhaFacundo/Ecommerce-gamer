@@ -3,10 +3,9 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { login } from "../helpers/queries";
-import "./Login.css";  
+import "./Login.css";
 
 const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
-
   const {
     register,
     handleSubmit,
@@ -18,25 +17,24 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
     login(usuario).then((respuesta) => {
       console.log(respuesta);
       if (respuesta) {
-        Swal.fire(
-          "Bienvenido " + respuesta.nombreUsuario,
-          "Ingresaste a Tucu Gamer",
-          "success"
-        );
+        // Swal.fire(
+        //   "Bienvenido " + respuesta.nombreUsuario,
+        //   "Ingresaste a Tucu Gamer",
+        //   "success"
+        // );
         handleCloseModal();
         setTimeout(() => {
           window.location.reload();
         }, 1000);
-        var datosUsuario ={
+        var datosUsuario = {
           id: respuesta.id,
           rol: respuesta.rol,
           nombreUsuario: respuesta.nombreUsuario,
-          email: respuesta.email
-        }
+          email: respuesta.email,
+        };
         sessionStorage.setItem("usuarioLogeado", JSON.stringify(datosUsuario));
         console.log(respuesta.id);
         setUsuarioActivo(datosUsuario);
-
       } else {
         Swal.fire("Ocurrio un error", "Email o password incorrecto", "error");
       }
@@ -45,8 +43,7 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
 
   return (
     <>
-       <Modal
-
+      <Modal
         show={showModal}
         size="lg"
         aria-labelledby="example-modal-sizes-title-lg"
@@ -56,11 +53,7 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
           {/* ... (tu código de encabezado) */}
         </Modal.Header>
         <Modal.Body className="modal-body">
-          <Form
-            onSubmit={handleSubmit(onSubmit)}
-            className="login-form"
-          >
-
+          <Form onSubmit={handleSubmit(onSubmit)} className="login-form">
             <Form.Group className="mb-3 text-white" controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control
@@ -70,7 +63,6 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                   required: "El email es un dato obligatorio",
                   pattern: {
                     value: /^[\w\.-]+@[\w\.-]+\.\w+$/,
-
 
                     message:
                       "El email debe cumplir con un formato valido como el siguiente mail@mail.com",
@@ -127,7 +119,6 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                 to={"/registro"}
                 onClick={handleCloseModal}
                 className=" my-4 text-white link-hover"
-
                 style={{ textDecoration: "none" }}
               >
                 ¿No tienes una cuenta?
@@ -136,7 +127,6 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
             <Col xs="6" className="mt-2 text-center text-login">
               <Link
                 className=" my-4 text-white link-hover "
-
                 style={{ textDecoration: "none" }}
               >
                 ¿Has olvidado la contraseña?
@@ -152,9 +142,8 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-dcr.svg"
                       alt="discord-logo"
                       onError={(e) => {
-                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                        e.target.src = "https://i.stack.imgur.com/lnYep.png";
                       }}
-
                     />
                   </Link>
                 </li>
@@ -164,9 +153,8 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-tw.svg"
                       alt="twitter-logo"
                       onError={(e) => {
-                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                        e.target.src = "https://i.stack.imgur.com/lnYep.png";
                       }}
-
                     />
                   </Link>
                 </li>
@@ -176,9 +164,8 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-igr.svg"
                       alt="instagram-logo"
                       onError={(e) => {
-                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                        e.target.src = "https://i.stack.imgur.com/lnYep.png";
                       }}
-
                     />
                   </Link>
                 </li>
@@ -188,9 +175,8 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-fb.svg"
                       alt="facebook-logo"
                       onError={(e) => {
-                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                        e.target.src = "https://i.stack.imgur.com/lnYep.png";
                       }}
-
                     />
                   </Link>
                 </li>
@@ -200,9 +186,8 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-yt.svg"
                       alt="youtube-logo"
                       onError={(e) => {
-                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                        e.target.src = "https://i.stack.imgur.com/lnYep.png";
                       }}
-
                     />
                   </Link>
                 </li>
@@ -212,9 +197,8 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-tch.svg"
                       alt="twitch-logo"
                       onError={(e) => {
-                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                        e.target.src = "https://i.stack.imgur.com/lnYep.png";
                       }}
-
                     />
                   </Link>
                 </li>
@@ -223,21 +207,18 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/icon-extension.svg"
                       alt="googlestore-logo"
-
                       onError={(e) => {
-                        e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                        e.target.src = "https://i.stack.imgur.com/lnYep.png";
                       }}
-
                     />
                   </Link>
                 </li>
               </ul>
             </article>
-            
           </section>
-          </Modal.Body>
-        <Modal.Footer className="modal-footer"
-
+        </Modal.Body>
+        <Modal.Footer
+          className="modal-footer"
           style={{
             backgroundColor: "#272727",
           }}

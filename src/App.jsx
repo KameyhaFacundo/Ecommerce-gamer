@@ -5,7 +5,6 @@ import Inicio from "./components/view/Inicio";
 import Login from "./components/view/Login";
 import AcercaDeNostros from "./components/view/AcercaDeNostros";
 import DetalleJuego from "./components/view/DetalleJuego";
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Error404 from "./components/view/Error404";
 import ComprarJuego from "./components/view/ComprarJuego";
@@ -22,27 +21,28 @@ import ScrollToTop from "./ScrollToTop";
 function App() {
   const UsuarioNoLogueado = {
     id: 0,
-    rol: false
-  }
-  const usuarioOnline = JSON.parse(sessionStorage.getItem("usuarioLogeado")) || UsuarioNoLogueado;
+    rol: false,
+  };
+  const usuarioOnline =
+    JSON.parse(sessionStorage.getItem("usuarioLogeado")) || UsuarioNoLogueado;
 
   const [usuarioActivo, setUsuarioActivo] = useState(usuarioOnline);
 
-
-
-
   return (
     <>
-
       <BrowserRouter>
-      <ScrollToTop/>
-      <Nav
+        <ScrollToTop />
+        <Nav
           setUsuarioActivo={setUsuarioActivo}
           usuarioActivo={usuarioActivo}
         ></Nav>
 
         <Routes>
-          <Route exact path="/" element={<Inicio usuarioActivo={usuarioActivo}></Inicio>}></Route>
+          <Route
+            exact
+            path="/"
+            element={<Inicio usuarioActivo={usuarioActivo}></Inicio>}
+          ></Route>
           <Route
             exact
             path="/login"
@@ -53,19 +53,27 @@ function App() {
             path="/acerca-de-nosotros"
             element={<AcercaDeNostros></AcercaDeNostros>}
           ></Route>
-          <Route path="/registro/*" element={<EncapsularRutasRegistro>
-                <RutasProtegidasRegistro  />
-              </EncapsularRutasRegistro>}></Route>
+          <Route
+            path="/registro/*"
+            element={
+              <EncapsularRutasRegistro>
+                <RutasProtegidasRegistro />
+              </EncapsularRutasRegistro>
+            }
+          ></Route>
           <Route
             exact
             path="/detalle/:id"
-            element={<DetalleJuego usuarioActivo={usuarioActivo}
-            ></DetalleJuego>}
+            element={
+              <DetalleJuego usuarioActivo={usuarioActivo}></DetalleJuego>
+            }
           ></Route>
           <Route
             exact
             path="/ComprarJuego/:id"
-            element={<ComprarJuego usuarioActivo={usuarioActivo}></ComprarJuego>}
+            element={
+              <ComprarJuego usuarioActivo={usuarioActivo}></ComprarJuego>
+            }
           ></Route>
           <Route
             path="/administrador/*"
@@ -75,23 +83,20 @@ function App() {
               </EncapsularRutas>
             }
           ></Route>
-           <Route
+          <Route
             path="/micuenta/*"
             element={
               <EncapsularRutasMiCuenta>
-                < RutasProtegidasMiCuenta usuarioActivo={usuarioActivo} />
+                <RutasProtegidasMiCuenta usuarioActivo={usuarioActivo} />
               </EncapsularRutasMiCuenta>
             }
           ></Route>
-          
 
           <Route exact path="*" element={<Error404></Error404>}></Route>
         </Routes>
 
         <Footer></Footer>
-
       </BrowserRouter>
-      
     </>
   );
 }

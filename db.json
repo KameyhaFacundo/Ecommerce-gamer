@@ -204,41 +204,6 @@
       "id": 4
     },
     {
-      "nombreJuego": "The Last Of Us Remastered",
-      "precio": "750.50",
-      "fechaDeLanzamiento": "02-05-2020",
-      "desarrollador": "Naughty Dog",
-      "descripcion": "\"The Last of Us Remastered\" es una versión mejorada y adaptada para la PlayStation 4 del juego original \"The Last of Us\", que fue lanzado inicialmente para la PlayStation 3 en 2013. La versión remasterizada incluye mejoras gráficas, contenido adicional y todas las expansiones lanzadas previamente.",
-      "categorias": [
-        {
-          "categoria": "Simulacion",
-          "id": 2
-        }
-      ],
-      "imagen": "https://juegosdigitalesargentina.com/files/images/productos/1654982858-the-last-of-us-remastered-part-i-ps5-pre-orden-0.jpg",
-      "memoriaRam": "4",
-      "espacioDiscoDuro": "512",
-      "procesadores": [
-        {
-          "procesador": "IBM POWER9",
-          "id": 5
-        }
-      ],
-      "sistemasOperativos": [
-        {
-          "sistemaOperativo": "WINDOWS",
-          "id": 1
-        }
-      ],
-      "tarjetasGraficas": [
-        {
-          "tarjetaGrafica": "AMD Radeon RX 570",
-          "id": 4
-        }
-      ],
-      "id": 5
-    },
-    {
       "nombreJuego": "Pro Evolution Soccer Pes 2019",
       "precio": "350.25",
       "fechaDeLanzamiento": "04-12-2003",
@@ -828,11 +793,6 @@
   ],
   "juegosStorage": [
     {
-      "idJuego": 1,
-      "idUsuario": 1,
-      "id": 4
-    },
-    {
       "idJuego": 3,
       "idUsuario": 1,
       "id": 5
@@ -846,6 +806,11 @@
       "idJuego": 6,
       "idUsuario": 1,
       "id": 8
+    },
+    {
+      "idJuego": 1,
+      "idUsuario": 1,
+      "id": 9
     }
   ],
   "resenias": [
@@ -869,13 +834,6 @@
       "idUsuario": 3,
       "idJuego": 2,
       "nombreUsuario": "Jose"
-    },
-    {
-      "resenia": "Tomi es un boludo xd",
-      "idJuego": 6,
-      "idUsuario": 1,
-      "nombreUsuario": "Admin",
-      "id": 4
     },
     {
       "resenia": "Tomi sigue siendo un boludo",

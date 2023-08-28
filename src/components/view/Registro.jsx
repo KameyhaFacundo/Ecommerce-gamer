@@ -58,7 +58,7 @@ const Registro = () => {
   };
 
   return (
-    <div className="d-flex conteiner-register">
+    <div className="d-flex conteiner-register minHeader">
       <div>
         <div className="carrousel-container">
           <div className="image-container">

@@ -74,37 +74,67 @@ function Inicio({ usuarioActivo }) {
     }
   }
 
-  const MostrarTop = () => {
-    var datosCompilados = [];
-    juegos.map((juego) => {
-      var contador = 0;
-      var puntacionIndividual = 0;
-      puntuaciones.map((puntuacion) => {
-        if (puntuacion.idJuego === juego.id) {
-          puntacionIndividual += puntuacion.puntuacionJuego;
-          contador++;
-        }
-      });
+  // const MostrarTop = () => {
+  //   var datosCompilados = [];
+  //   juegos.map((juego) => {
+  //     var contador = 0;
+  //     var puntacionIndividual = 0;
+  //     puntuaciones.map((puntuacion) => {
+  //       if (puntuacion.idJuego === juego.id) {
+  //         puntacionIndividual += puntuacion.puntuacionJuego;
+  //         contador++;
+  //       }
+  //     });
 
-      if (puntacionIndividual > 0) {
-        const datos = {
-          idJuego: juego.id,
-          nombreJuego: juego.nombreJuego,
-          imagen: juego.imagen,
-          precio: juego.precio,
-          puntuacionJuego: (puntacionIndividual / contador).toFixed(2),
-        };
-        datosCompilados.push(datos);
-      }
-    });
+  //     if (puntacionIndividual > 0) {
+  //       const datos = {
+  //         idJuego: juego.id,
+  //         nombreJuego: juego.nombreJuego,
+  //         imagen: juego.imagen,
+  //         precio: juego.precio,
+  //         puntuacionJuego: (puntacionIndividual / contador).toFixed(2),
+  //       };
+  //       datosCompilados.push(datos);
+  //     }
+  //   });
+  //   datosCompilados.sort((a, b) => b.puntuacionJuego - a.puntuacionJuego);
+  //   console.log(datosCompilados);
+  //   setTopJuegos(datosCompilados);
+  // };
+
+  const MostrarTop = () => {
+    const datosCompilados = juegos
+      .map((juego) => {
+        let contador = 0;
+        let puntacionIndividual = 0;
+        for (const puntuacion of puntuaciones) {
+          if (puntuacion.idJuego === juego.id) {
+            puntacionIndividual += puntuacion.puntuacionJuego;
+            contador++;
+          }
+        }
+
+        if (puntacionIndividual > 0) {
+          const datos = {
+            idJuego: juego.id,
+            nombreJuego: juego.nombreJuego,
+            imagen: juego.imagen,
+            precio: juego.precio,
+            puntuacionJuego: (puntacionIndividual / contador).toFixed(2),
+          };
+          return datos;
+        }
+        return null;
+      })
+      .filter(Boolean);
+
     datosCompilados.sort((a, b) => b.puntuacionJuego - a.puntuacionJuego);
-    console.log(datosCompilados);
     setTopJuegos(datosCompilados);
   };
 
   const handleChange = (e) => {
     const selectedCategoria = e.target.value;
-    onSubmit({ categorias: selectedCategoria });  
+    onSubmit({ categorias: selectedCategoria });
   };
 
   return (
@@ -112,23 +142,33 @@ function Inicio({ usuarioActivo }) {
       <CarrouselInicio></CarrouselInicio>
       <div className="bg-dark d-flex align-items-center mb-4">
         <div className="text-filtrar">Filtrar</div>
-        <div> <Form>
-          <FormGroup>
-            <Form.Select
-              className="select-option-categoria"
-              {...register("categorias")}
-              onChange={handleChange}
-            >
-              <option value="0">Seleccione una opción</option>
-              {categorias.map((categoria) => (
-                <option key={categoria.id} value={categoria.id}>
-                  {categoria.categoria}
-                </option>
-              ))}
-            </Form.Select>
-          </FormGroup>
-        </Form></div>
-       
+        <div>
+          {" "}
+          <Form>
+            <FormGroup>
+              <Form.Select
+                className="select-option-categoria"
+                {...register("categorias")}
+                onChange={handleChange}
+              >
+                <option value="0">Seleccione una opción</option>
+                {/* {categorias.map((categoria) => (
+                  <option key={categoria.id} value={categoria.id}>
+                    {categoria.categoria}
+                  </option>
+                ))} */}
+                {categorias.map((categoria, index) => (
+                  <option
+                    key={`categoria-${categoria.id}-${index}`}
+                    value={categoria.id}
+                  >
+                    {categoria.categoria}
+                  </option>
+                ))}
+              </Form.Select>
+            </FormGroup>
+          </Form>
+        </div>
       </div>
       <CardJuego juegos={juegosfilter} />{" "}
       <div className="justify-content-center d-flex top-conteiner">
@@ -139,7 +179,7 @@ function Inicio({ usuarioActivo }) {
               src="https://images.wikidexcdn.net/mwuploads/esssbwiki/thumb/b/b3/latest/20180612205232/Cloud_SSBU.png/1200px-Cloud_SSBU.png"
               alt="fondo-img"
               onError={(e) => {
-                e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                e.target.src = "https://i.stack.imgur.com/lnYep.png";
               }}
             />
           </div>

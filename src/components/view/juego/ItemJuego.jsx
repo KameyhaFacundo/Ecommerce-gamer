@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { eliminarJuego } from "../../helpers/queries";
 import Swal from "sweetalert2";
 import "./ItemJuego.css";
+
 function ItemJuego({
   handleEliminarClick,
   id,

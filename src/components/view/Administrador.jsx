@@ -85,8 +85,6 @@ const Administrador = () => {
             <th className="d-none d-md-table-cell">Precio</th>
             <th className="d-none d-xl-block">Imagen</th>
             <th className="d-none d-xl-table-cell">Categoria</th>
-            {/* <th>Fecha de Lanzamiento</th>
-            <th>Requerimiento del Sistema</th> */}
             <th className="movile-adapt">Opciones</th>
           </tr>
         </thead>

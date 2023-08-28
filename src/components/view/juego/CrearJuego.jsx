@@ -179,7 +179,7 @@ function CrearJuego() {
               placeholder="Ingrese una descripcion breve del juego, no mayor a 500 caracteres"
               {...register("descripcion", {
                 required: "Este dato es obligatorio",
-                
+
                 minLength: {
                   value: 20,
                   message: "Debe ingresar como minimo 20 caracteres",

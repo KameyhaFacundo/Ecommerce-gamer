@@ -1,7 +1,8 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./CardAnuncioRegistro.css"
+import "./CardAnuncioRegistro.css";
+
 function CardAnuncioRegistro() {
   return (
     <div className="w-100 d-flex h-100 my-3 justify-content-center align-items-center">
@@ -11,7 +12,7 @@ function CardAnuncioRegistro() {
           src="https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt5599d0d810824279/6036ca30ce4a0d12c3ec1dfa/V_AGENTS_587x900_Astra.png"
           alt="anuncio-img"
           onError={(e) => {
-            e.target.src = "https://i.stack.imgur.com/lnYep.png"; 
+            e.target.src = "https://i.stack.imgur.com/lnYep.png";
           }}
         />
       </div>

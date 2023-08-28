@@ -4,20 +4,17 @@
   justify-content: center;
 }
 .card-juego .img-juego {
-    padding: 0 !important;
-
+  padding: 0 !important;
 }
 
-
-
 .card-juego {
-    width: 50vw;
+  width: 50vw;
   display: flex;
   justify-content: center;
   margin: 10vh 0;
-  -webkit-box-shadow: -1px 19px 53px -17px rgba(255,255,255,1);
--moz-box-shadow: -1px 19px 53px -17px rgba(255,255,255,1);
-box-shadow: -1px 19px 53px -17px rgba(255,255,255,1);
+  -webkit-box-shadow: -1px 19px 53px -17px rgba(255, 255, 255, 1);
+  -moz-box-shadow: -1px 19px 53px -17px rgba(255, 255, 255, 1);
+  box-shadow: -1px 19px 53px -17px rgba(255, 255, 255, 1);
 }
 
 .body-detalle {

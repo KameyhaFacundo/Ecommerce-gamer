@@ -80,7 +80,7 @@ const DetalleJuego = ({ usuarioActivo }) => {
                 src={juego.imagen}
                 alt="Img-game"
                 onError={(e) => {
-                  e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                  e.target.src = "https://i.stack.imgur.com/lnYep.png";
                 }}
               />
             </div>
@@ -137,17 +137,15 @@ const DetalleJuego = ({ usuarioActivo }) => {
             <span className="fw-semibold">
               <h5>Tarjeta Grafica: {tarjetagrafica} G</h5>
             </span>
-           
           </div>
           <div className="text-center">
-          <h1>Sistema de Calificación</h1>
+            <h1>Sistema de Calificación</h1>
             <StarRating
               onChange={handleRatingChange}
               usuarioActivo={usuarioActivo}
               idJuego={id}
             />
           </div>
-         
         </div>
       </div>
       <div className="bg-dark">
@@ -158,11 +156,12 @@ const DetalleJuego = ({ usuarioActivo }) => {
             </div>
             <div className="d-flex mb-5 content-coment">
               <div className="d-flex flex-column align-items-center">
-                <img className="img-usuario "
+                <img
+                  className="img-usuario "
                   src="https://us.123rf.com/450wm/get4net/get4net1902/get4net190209043/125446708-usuario-anónimo-sin-rostro.jpg"
                   alt="img-usuario"
                   onError={(e) => {
-                    e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+                    e.target.src = "https://i.stack.imgur.com/lnYep.png";
                   }}
                 />
                 <p>{usuarioActivo.nombreUsuario}</p>
@@ -202,4 +201,3 @@ const DetalleJuego = ({ usuarioActivo }) => {
 };
 
 export default DetalleJuego;
-

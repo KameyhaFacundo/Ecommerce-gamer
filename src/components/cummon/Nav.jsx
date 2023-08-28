@@ -9,6 +9,7 @@ import Login from "../view/Login";
 import { Link, useNavigate } from "react-router-dom";
 import { listarUsuarios } from "../helpers/queries";
 import "./Nav.css";
+
 function ItemNavbar({ setUsuarioActivo, usuarioActivo }) {
   const [showModal, setShowModal] = useState(false);
   const [usuarios, setUsuarios] = useState([]);
@@ -74,7 +75,7 @@ function ItemNavbar({ setUsuarioActivo, usuarioActivo }) {
                 src="https://res.cloudinary.com/dol1ba0ld/image/upload/v1692860070/asd/image-removebg-preview_58_gqj88c.png"
                 alt="logo-inicio"
                 onError={(e) => {
-                  e.target.src = "https://i.stack.imgur.com/lnYep.png"; // Ruta de la imagen alternativa
+                  e.target.src = "https://i.stack.imgur.com/lnYep.png";
                 }}
               />
             </Link>
@@ -99,7 +100,7 @@ function ItemNavbar({ setUsuarioActivo, usuarioActivo }) {
                     type="submit"
                     onClick={handleShowModal}
                   >
-                    Login
+                    Iniciar sesión
                   </Button>
                   <Link to={"/registro"}>
                     <Button
@@ -154,7 +155,7 @@ function ItemNavbar({ setUsuarioActivo, usuarioActivo }) {
                           cerrarSesion();
                         }}
                       >
-                        Logout
+                        Cerrar sesión
                       </Button>
                     </Link>
                   </Nav>
@@ -187,7 +188,7 @@ function ItemNavbar({ setUsuarioActivo, usuarioActivo }) {
                         cerrarSesion();
                       }}
                     >
-                      Logout
+                      Cerrar sesión
                     </Button>
                   </Link>
                 </>

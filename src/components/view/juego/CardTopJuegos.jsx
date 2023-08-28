@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function CardTopJuegos({ juegos }) {
   const limitedJuegos = juegos.slice(0, 4);
- 
+
   return (
     <>
       {limitedJuegos.map((juego, index) => (
@@ -15,13 +15,15 @@ function CardTopJuegos({ juegos }) {
             variant="top"
             src={juego.imagen}
             onError={(e) => {
-              e.target.src = 'https://i.stack.imgur.com/lnYep.png';
+              e.target.src = "https://i.stack.imgur.com/lnYep.png";
             }}
             alt="Card-img"
           />
           <Card.Body className="card-body-size-2 d-flex flex-column justify-content-center">
             <div className="d-flex justify-content-center conteiner-text">
-              <Card.Text className="conteiner-text">{juego.nombreJuego}</Card.Text>
+              <Card.Text className="conteiner-text">
+                {juego.nombreJuego}
+              </Card.Text>
             </div>
           </Card.Body>
         </Card>

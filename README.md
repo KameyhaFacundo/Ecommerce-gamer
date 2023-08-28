@@ -34,8 +34,10 @@ git clone https://github.com/KameyhaFacundo/Ecommerce-gamer.git
 
 ## Capturas de Pantalla
 
-![Captura de Pantalla 1](url_de_captura_1.png)
-![Captura de Pantalla 2](url_de_captura_2.png)
+<p align="center">
+  <img src="https://res.cloudinary.com/dgzimgpia/image/upload/v1693188170/Captura_de_pantalla_223_qu5kyn.png"
+alt="Texto alternativo" width="500px">
+</p>
 
 ## Uso
 

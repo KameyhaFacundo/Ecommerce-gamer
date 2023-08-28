@@ -169,7 +169,6 @@ function ComprarJuego({ usuarioActivo }) {
           </section>
         </div>
       </div>
-      {/* Componente de reseña */}
     </div>
   );
 }

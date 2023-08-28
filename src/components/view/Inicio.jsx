@@ -163,11 +163,7 @@ function Inicio({ usuarioActivo }) {
                 onChange={handleChange}
               >
                 <option value="0">Seleccione una opción</option>
-                {/* {categorias.map((categoria) => (
-                  <option key={categoria.id} value={categoria.id}>
-                    {categoria.categoria}
-                  </option>
-                ))} */}
+              
                 {categorias.map((categoria, index) => (
                   <option
                     key={`categoria-${categoria.id}-${index}`}

@@ -19,6 +19,8 @@ function Inicio({ usuarioActivo }) {
   const [juegosfilter, setJuegosFilter] = useState([]);
   const [puntuaciones, setPuntuaciones] = useState([]);
   const [topjuegos, setTopJuegos] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -39,6 +41,14 @@ function Inicio({ usuarioActivo }) {
       });
   }, []);
 
+  const searchGames = (term) => {
+    const filteredGames = juegos.filter((juego) =>
+      juego.nombreJuego.toLowerCase().includes(term.toLowerCase())
+    );
+    setJuegosFilter(filteredGames);
+  };
+  
+  
   useEffect(() => {
     MostrarTop();
   }, [juegos, puntuaciones]);
@@ -141,6 +151,7 @@ function Inicio({ usuarioActivo }) {
     <div className="body-search ">
       <CarrouselInicio></CarrouselInicio>
       <div className="bg-dark d-flex align-items-center mb-4">
+        
         <div className="text-filtrar">Filtrar</div>
         <div>
           {" "}
@@ -169,7 +180,23 @@ function Inicio({ usuarioActivo }) {
             </FormGroup>
           </Form>
         </div>
+        <Form>
+  {/* ...otros campos de formulario... */}
+  <FormGroup>
+    <Form.Control
+      type="text"
+      placeholder="Buscar por nombre..."
+      value={searchTerm}
+      onChange={(e) => {
+        setSearchTerm(e.target.value);
+        searchGames(e.target.value);
+      }}
+    />
+  </FormGroup>
+</Form>
+
       </div>
+      
       <CardJuego juegos={juegosfilter} />{" "}
       <div className="justify-content-center d-flex top-conteiner">
         <div className="d-flex bg-top">

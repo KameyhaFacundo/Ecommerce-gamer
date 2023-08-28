@@ -13,15 +13,8 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
   } = useForm();
 
   const onSubmit = (usuario) => {
-    console.log(usuario);
     login(usuario).then((respuesta) => {
-      console.log(respuesta);
       if (respuesta) {
-        // Swal.fire(
-        //   "Bienvenido " + respuesta.nombreUsuario,
-        //   "Ingresaste a Tucu Gamer",
-        //   "success"
-        // );
         handleCloseModal();
         setTimeout(() => {
           window.location.reload();
@@ -33,7 +26,6 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
           email: respuesta.email,
         };
         sessionStorage.setItem("usuarioLogeado", JSON.stringify(datosUsuario));
-        console.log(respuesta.id);
         setUsuarioActivo(datosUsuario);
       } else {
         Swal.fire("Ocurrio un error", "Email o password incorrecto", "error");
@@ -49,9 +41,13 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
         aria-labelledby="example-modal-sizes-title-lg"
         centered
       >
-        <Modal.Header className="modal-header">
-          {/* ... (tu código de encabezado) */}
-        </Modal.Header>
+        <Modal.Header
+          className="modal-header text-center py-4"
+          style={{
+            backgroundColor: "#2727",
+            color: "#000000",
+          }}
+        ></Modal.Header>
         <Modal.Body className="modal-body">
           <Form onSubmit={handleSubmit(onSubmit)} className="login-form">
             <Form.Group className="mb-3 text-white" controlId="formBasicEmail">
@@ -86,7 +82,6 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                   required: "El password es un dato obligatorio",
                   pattern: {
                     value: /^[a-zA-Z0-9áéíóúñÁÉÍÓÚÑ]*$/,
-                    //  /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/ ,
 
                     message:
                       "El password debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.",
@@ -102,7 +97,7 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
               <div className="d-grid gap-2">
                 <Button
                   style={{
-                    backgroundColor: "green",
+                    backgroundColor: "#28a745",
                     border: 0,
                   }}
                   type="submit"
@@ -128,6 +123,8 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
               <Link
                 className=" my-4 text-white link-hover "
                 style={{ textDecoration: "none" }}
+                to={"/*"}
+                onClick={handleCloseModal}
               >
                 ¿Has olvidado la contraseña?
               </Link>
@@ -137,7 +134,11 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
             <article className="d-flex justify-content-center">
               <ul className="list-inline d-flex flex-wrap justify-content-center ">
                 <li className="nav-item social-logo mx-2">
-                  <Link className="nav-link mx-2" href="#">
+                  <Link
+                    className="nav-link mx-2"
+                    to={"/*"}
+                    onClick={handleCloseModal}
+                  >
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-dcr.svg"
                       alt="discord-logo"
@@ -148,7 +149,11 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                   </Link>
                 </li>
                 <li className="nav-item social-logo mx-2">
-                  <Link className="nav-link mx-2">
+                  <Link
+                    className="nav-link mx-2"
+                    to={"/*"}
+                    onClick={handleCloseModal}
+                  >
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-tw.svg"
                       alt="twitter-logo"
@@ -159,7 +164,11 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                   </Link>
                 </li>
                 <li className="nav-item social-logo mx-2">
-                  <Link className="nav-link mx-2" href="#">
+                  <Link
+                    className="nav-link mx-2"
+                    to={"/*"}
+                    onClick={handleCloseModal}
+                  >
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-igr.svg"
                       alt="instagram-logo"
@@ -170,7 +179,11 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                   </Link>
                 </li>
                 <li className="nav-item social-logo mx-2">
-                  <Link className="nav-link mx-2" href="#">
+                  <Link
+                    className="nav-link mx-2"
+                    to={"/*"}
+                    onClick={handleCloseModal}
+                  >
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-fb.svg"
                       alt="facebook-logo"
@@ -181,7 +194,11 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                   </Link>
                 </li>
                 <li className="nav-item social-logo mx-2">
-                  <Link className="nav-link mx-2" href="#">
+                  <Link
+                    className="nav-link mx-2"
+                    to={"/*"}
+                    onClick={handleCloseModal}
+                  >
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-yt.svg"
                       alt="youtube-logo"
@@ -192,7 +209,11 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                   </Link>
                 </li>
                 <li className="nav-item mx-2 social-logo">
-                  <Link className="nav-link mx-2" href="#">
+                  <Link
+                    className="nav-link mx-2"
+                    to={"/*"}
+                    onClick={handleCloseModal}
+                  >
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/socials/icon-tch.svg"
                       alt="twitch-logo"
@@ -203,7 +224,11 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
                   </Link>
                 </li>
                 <li className="nav-item social-logo mx-2">
-                  <Link className="nav-link mx-2" href="#">
+                  <Link
+                    className="nav-link mx-2"
+                    to={"/*"}
+                    onClick={handleCloseModal}
+                  >
                     <img
                       src="https://www.instant-gaming.com/themes/igv2/images/icons/icon-extension.svg"
                       alt="googlestore-logo"
@@ -220,17 +245,17 @@ const Login = ({ showModal, handleCloseModal, setUsuarioActivo }) => {
         <Modal.Footer
           className="modal-footer"
           style={{
-            backgroundColor: "#272727",
+            backgroundColor: "#272728",
           }}
         >
           <Button
             onClick={handleCloseModal}
             style={{
-              backgroundColor: "green",
+              backgroundColor: "#28a745",
               border: 0,
             }}
           >
-            Close
+            Cerrar
           </Button>
         </Modal.Footer>
       </Modal>

@@ -36,7 +36,7 @@ git clone https://github.com/KameyhaFacundo/Ecommerce-gamer.git
 
 <p align="center">
   <img src="https://res.cloudinary.com/dgzimgpia/image/upload/v1693188170/Captura_de_pantalla_223_qu5kyn.png"
-alt="Texto alternativo" width="500px">
+alt="Texto alternativo" width="700px">
 </p>
 
 ## Uso
